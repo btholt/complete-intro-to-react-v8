@@ -3,16 +3,14 @@
     "name": "Brian Holt",
     "company": "Stripe"
   },
-  "title": "Next.js Course Starter Kit",
-  "subtitle": "for Frontend Masters",
-  "frontendMastersLink": "https://frontendmasters.com/courses/complete-react-v6/",
+  "title": "Complete Intro to React v8",
+  "subtitle": "and Intermediate React v5",
+  "frontendMastersLink": "https://frontendmasters.com/workshops/complete-react-v8/",
   "social": {
     "linkedin": "btholt",
     "github": "btholt",
     "twitter": "holtbt"
   },
-  "description": "A starter kit for making really amazing courses, optimized for Frontend Masters",
-  "keywords": ["your", "Google", "keywords", "here"],
-  "productionBaseUrl": "/next-course-starter",
-  "csvPath": "./out/lessons.csv"
+  "description": "Come learn React from Brian Holt, a veteran React.js developer on Frontend Masters",
+  "keywords": ["react", "reactjs", "brian holt", "javascript", "node", "nodejs", "js", "redux", "tailwindcss", "testing", "typescript", "hooks", "vite"]
 }
