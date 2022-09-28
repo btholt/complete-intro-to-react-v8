@@ -6,7 +6,7 @@
 
   --text-header: var(--primary);
   --text-main-headers: var(--secondary);
-  --text-links: var(--primary);
+  --text-links: var(--highlight);
   --text-footer: #333;
 
   --bg-main: white;

@@ -3,7 +3,7 @@ title: "Introduction"
 description: "Brian Holt introduces you to himself, the Complete Intro to React version 6, and what you can expect to learn"
 ---
 
-Hello! And welcome to the seventh edition of the Complete Intro to React as taught by [Brian Holt][twitter].
+Hello! And welcome to the eighth edition of the Complete Intro to React as taught by [Brian Holt][twitter].
 
 ![Cat, dog, and rat logo for the course](./images/course-icon.png)
 
@@ -13,16 +13,16 @@ This course is unique as compared to other React introductions because this cour
 
 ## Who is this course for
 
-You, hopefully. 😄 This course is for anyone who wants to know React better. The course assumes only a basic knowledge of JavaScript ([start here if you need help with that][bootcamp]). This course will equally be useful for people learning React for the first time as it is for people who have written some React but want to understand the tools better. If you have taken previous versions of this course, this course will feature current versions (as of writing) of all the libraries and update on all the new features that have since come out. This class will share much of the structure of v5 and v6 since I was really happy with how those courses' narrative worked.
+You, hopefully. 😄 This course is for anyone who wants to know React better. The course assumes only a basic knowledge of JavaScript ([start here if you need help with that][bootcamp]). This course will equally be useful for people learning React for the first time as it is for people who have written some React but want to understand the tools better. If you have taken previous versions of this course, this course will feature current versions (as of writing) of all the libraries and update on all the new features that have since come out. This class will share much of the structure of v5, v6, and v7 since I was really happy with how those courses' narrative worked.
 
 ## Set up
 
 This course works and has been tested on both macOS and Windows 10. It also will work very well on Linux (just follow the macOS instructions). You shouldn't need a particularly powerful computer for any part of this course. 8GB of RAM would more than get you through it and you can likely get away with less.
 
-- Install Node.js. Make sure your version of Node.js is at least 12, preferably the latest stable release. I prefer using nvm to install Node.js, [see setup instructions here][nvm]. I'll be using Node.js 16.
+- Install Node.js. Make sure your version of Node.js is at least 14, preferably the latest stable release. I prefer using nvm to install Node.js, [see setup instructions here][nvm]. I'll be using Node.js 18.
 - While you do not have to use [Visual Studio Code][vsc], it is what I will be using and I'll be giving you fun tips for it along the way. I was on the VS Code team so I'm a bit biased!
 - People often ask me what my coding set up is so let's go over that really quick!
-  - Font: [Dank Mono][dank]. Be sure to [enable ligatures][ligatures] in VS Code! If you want ligatures without Dank, check out Microsoft's [Cascadia Code][cascadia].
+  - Font: [Mono Lisa][mono]. Be sure to [enable ligatures][ligatures] in VS Code! If you want ligatures without Dank, check out Microsoft's [Cascadia Code][cascadia].
   - Theme: I actually just like Dark+, the default VS Code theme. Though I do love [Sarah Drasner's Night Owl][night-owl] too.
   - Terminal: I just switched back to using macOS's built in terminal. [iTerm2][iterm] is great too. On Windows I love [Windows Terminal][terminal].
   - VS Code Icons: the [vscode-icons][icons] extension.
@@ -64,18 +64,18 @@ For the Intermediate classes they're just called `<section>` since most of them 
 [bootcamp]: https://frontendmasters.com/bootcamp/
 [nvm]: https://github.com/nvm-sh/nvm
 [vsc]: https://code.visualstudio.com/
-[dank]: https://gumroad.com/l/dank-mono
+[mono]: https://www.monolisa.dev/
 [ligatures]: https://worldofzero.com/posts/enable-font-ligatures-vscode/
 [night-owl]: https://marketplace.visualstudio.com/items?itemName=sdras.night-owl
 [cascadia]: https://github.com/microsoft/cascadia-code
 [terminal]: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 [icons]: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
 [iterm]: https://iterm2.com/
-[issues]: https://github.com/btholt/complete-intro-to-react-v7/issues
+[issues]: https://github.com/btholt/complete-intro-to-react-v8/issues
 [github]: https://github.com/btholt
 [linkedin]: https://www.linkedin.com/in/btholt/
-[gh]: https://btholt.github.io/complete-intro-to-react-v7/
-[projects]: https://github.com/btholt/citr-v7-project
-[site]: https://github.com/btholt/complete-intro-to-react-v7
+[gh]: https://btholt.github.io/complete-intro-to-react-v8/
+[projects]: https://github.com/btholt/citr-v8-project
+[site]: https://github.com/btholt/complete-intro-to-react-v8
 [tweet]: https://twitter.com/holtbt/status/493852312604254208
 [pelo]: https://members.onepeloton.com/members/btholt/overview

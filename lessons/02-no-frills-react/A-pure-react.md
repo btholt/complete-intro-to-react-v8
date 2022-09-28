@@ -20,8 +20,8 @@ Let's start your project. Create your project directory. I'm going to call mine 
 
 <body>
   <div id="root">not rendered</div>
-  <script src="https://unpkg.com/react@18.0.0-rc.0/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18.0.0-rc.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
   <script>
     // Your code is going to go here
   </script>
@@ -73,5 +73,5 @@ This is about the simplest React app you can build.
 
 > ReactDOM.createRoot is a new API as of React v18. The old `ReactDOM.render` is still available (and deprecated) but it'll render your app in "legacy" mode which won't use all the fun new features packed into React v18
 
-[webdev]: https://frontendmasters.com/courses/web-development-v2/
-[style]: https://raw.githubusercontent.com/btholt/citr-v7-project/master/01-no-frills-react/src/style.css
+[webdev]: https://frontendmasters.com/courses/web-development-v3/
+[style]: https://raw.githubusercontent.com/btholt/citr-v8-project/master/01-no-frills-react/src/style.css

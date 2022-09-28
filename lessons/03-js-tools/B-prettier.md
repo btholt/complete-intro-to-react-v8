@@ -14,7 +14,7 @@ Need to tool around a bit with it before you trust it? [Go here][prettier-playgr
 
 Let's go integrate this into our project. It's _pretty_ easy (since I'm a dad now, I'm legally obligated to make this joke.)
 
-Either install Prettier globally `npm install --global prettier` or replace when I run `prettier` with (from the root of your project) `npx prettier`. From there, run `prettier script.js`. This will output the formatted version of your file. If you want to actually write the file, run `prettier --write script.js`. Go check script.js and see it has been reformatted a bit. I will say for non-JSX React, prettier makes your code less readable. Luckily Prettier supports JSX! We'll get to that shortly.
+Either install Prettier globally `npm install --global prettier` or replace when I run `prettier` with (from the root of your project) `npx prettier`. From there, run `prettier src/App.js`. This will output the formatted version of your file. If you want to actually write the file, run `prettier --write src/App.js`. Go check src/App.js and see it has been reformatted a bit. I will say for non-JSX React, prettier makes your code less readable. Luckily Prettier supports JSX! We'll get to that shortly.
 
 Prettier has a few configurations but it's mostly meant to be a tool everyone uses and doesn't argue/bikeshed about the various code style rules. [Here they are][prettier-options]. I just use it as is since I'm lazy. Prettier can also understand [flow][flow] and [TypeScript][ts].
 
@@ -26,7 +26,7 @@ So that our tool can know this is a Prettier project, we're going to create a fi
 
 So it can be painful to try to remember the various CLI commands to run on your project. You can put CLI commands into it and then run the name of the tag and it'll run that script. Let's go see how that works. Put the following into your package.json.
 
-First run `npm install -D prettier@2.5.1`. `-D` means it's for development only.
+First run `npm install -D prettier@2.7.1`. `-D` means it's for development only.
 
 ```json
 "scripts": {
@@ -36,9 +36,7 @@ First run `npm install -D prettier@2.5.1`. `-D` means it's for development only.
 
 Now you can run `yarn format` or `npm run format` and it will run that command. This means we don't have to remember that mess of a command and just have to remember format. Nice, right? We'll be leaning on this a lot during this course.
 
-## Alternatives
-
-There really aren't any for Prettier. The alternative is just not to use a formatter. ESLint's `--fix` flag would be the closest thing.
+> Note the the `@2.7.1` portion. For the purposes of making this course not break in the future, I have you install the _exact_ version of packages I used when I made this course. As is natural, pacakges change and progress over time and I can't anticipate how that will happen. So I'd suggest you use the same packages I do as you do this course (even if npm yells at you for security vulnerabilites). As soon as you're done with the course, feel free to go update the versions to the latest and see if anything breaks.
 
 [jlongster]: https://twitter.com/jlongster
 [prettier]: https://github.com/prettier/prettier

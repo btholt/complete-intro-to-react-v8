@@ -5,7 +5,7 @@ description: "An essential part of maintaining a project a long time is discipli
 
 On top of Prettier which takes of all the formatting, you may want to enforce some code styles which pertain more to usage: for example you may want to force people to never use `with` which is valid JS but ill advised to use. [ESLint][eslint] comes into play here. It will lint for this problems.
 
-First of all, run `npm install -D eslint@8.8.0 eslint-config-prettier@8.3.0` to install eslint in your project development dependencies. Then you may configure its functionalities.
+First of all, run `npm install -D eslint@8.24.0 eslint-config-prettier@8.5.0` to install eslint in your project development dependencies. Then you may configure its functionalities.
 
 There are dozens of preset configs for ESLint and you're welcome to use any one of them. The [Airbnb config][airbnb] is very popular, as is the standard config (both of which I taught in previous versions of this class). I'm going to use a looser one for this class: `eslint:recommended`. Let's create an `.eslintrc.json` file to start linting our project.
 
@@ -30,13 +30,13 @@ Create this file called `.eslintrc.json`.
 }
 ```
 
-This is a combination of the recommended configs of ESLint and Prettier. This will lint for both normal JS stuff as well as JSX stuff. Run `npx eslint script.js` now and you should see we have a few errors. Run it again with the `--fix` flag and see it will fix some of it for us! Go fix the rest of your errors and come back. Let's go add this to our npm scripts.
+This is a combination of the recommended configs of ESLint and Prettier. This will lint for both normal JS stuff as well as JSX stuff. Run `npx eslint src/App.js` now and you should see we have a few errors. Run it again with the `--fix` flag and see it will fix some of it for us! Go fix the rest of your errors and come back. Let's go add this to our npm scripts.
 
 ```json
 "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
 ```
 
-**ESLint will have a bunch of errors right now. Ignore them; we'll fix them in a sec.**
+> 🚨 ESLint will have a bunch of errors right now. Ignore them; we'll fix them in a sec.
 
 Worth adding three things here:
 
