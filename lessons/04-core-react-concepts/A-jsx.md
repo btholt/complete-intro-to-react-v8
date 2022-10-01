@@ -5,11 +5,13 @@ description: "JSX is an essential part of writing React. Brian teaches you to le
 
 So far we've been writing React without JSX, something that I don't know anyone that actually does with their apps. _Everyone_ uses JSX. I show you this way so what JSX is actually doing is demystified to you. It doesn't do hardly anything. It just makes your code a bit more readable.
 
-If I write `React.createElement("h1", { id: "main-title" }, "My Website");`, what am I actually trying to have rendered out? `<h1 id="main-title">My Website</h1>`, right? What JSX tries to do is to shortcut this translation layer in your brain so you can just write what you mean. Let's convert Pet.js to using JSX. It will look like this:
+If I write `React.createElement("h1", { id: "main-title" }, "My Website");`, what am I actually trying to have rendered out? `<h1 id="main-title">My Website</h1>`, right? What JSX tries to do is to shortcut this translation layer in your brain so you can just write what you mean.
+
+Make a new file called Pet.jsx.
+
+> Make sure you call it `.jsx` and not `.js`. Vite won't do JSX transpilation if it's not named with a JSX file extension.
 
 ```javascript
-// delete the import
-
 const Pet = (props) => {
   return (
     <div>
@@ -38,8 +40,12 @@ Notice you still have to import React despite React not being explicitly used. R
 So now JSX is demystified a bit, let's go convert App.js.
 
 ```javascript
-import { createRoot } from "react-dom";
+// rename the file App.jsx
+// delete the React import
+import { createRoot } from "react-dom/client";
 import Pet from "./Pet";
+
+// delete the Pet component
 
 const App = () => {
   return (
@@ -59,6 +65,12 @@ root.render(<App />);
 
 > 🚨 ESLint is currently failing. We'll fix it at the end.
 
+Also head over to index.html and change the script tag
+
+```html
+<script type="module" src="./App.jsx"></script>
+```
+
 Notice we have Pet as a component. Notice that the `P` in `Pet` is capitalized. It _must_ be. If you make it lowercase, it will try to have `pet` as a web component and not a React component.
 
 We now pass props down as we add attributes to an HTML tag. Pretty cool.
@@ -67,7 +79,7 @@ We now pass props down as we add attributes to an HTML tag. Pretty cool.
 
 We need to give ESLint a hand to get it to recognize React and not yell about React not being used. Right now it thinks we're importing React and not using because it doesn't know what to do with React. Let's help it.
 
-Run this: `npm install -D eslint-plugin-import@2.25.4 eslint-plugin-jsx-a11y@6.5.1 eslint-plugin-react@7.28.0`
+Run this: `npm install -D eslint-plugin-import@2.26.0 eslint-plugin-jsx-a11y@6.6.1 eslint-plugin-react@7.31.8`
 
 Update your .eslintrc.json to:
 
@@ -100,6 +112,11 @@ Update your .eslintrc.json to:
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
     }
   }
 }
@@ -117,6 +134,7 @@ This particular configuration has a lot of rules to help you quickly catch commo
 - `eslint-plugin-react` now requires you to inform of it what version of React you're using. We're telling it here to look at the package.json to figure it out.
 - `"react/react-in-jsx-scope": 0` is new since you used to have to import React everywhere but now with the recent revision of React you don't need to.
 - Prop types are allow you to runtime type props to a component. In general if you're interested in doing that just use TypeScript.
+- We need to set the import plugin to look for both js and jsx extensions or else it won't resolve imports for us.
 
 Now your project should pass lint.
 

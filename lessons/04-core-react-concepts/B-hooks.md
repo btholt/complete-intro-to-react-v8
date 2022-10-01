@@ -2,7 +2,7 @@
 description: "React manages view state through a mechanism called hooks. Brian teaches you how to use them as you build components."
 ---
 
-Now we want to make it so you can modify what your search parameters are. Let's make a new route called SearchParams.js and have it accept these search parameters.
+Now we want to make it so you can modify what your search parameters are. Let's make a new route called SearchParams.jsx and have it accept these search parameters.
 
 ```javascript
 const SearchParams = () => {
@@ -23,8 +23,6 @@ const SearchParams = () => {
 export default SearchParams;
 ```
 
-> 🚨 ESLint is currently failing. We'll fix it in a sec.
-
 Now add it to your routes:
 
 ```javascript
@@ -35,7 +33,9 @@ import SearchParams from "./SearchParams";
 <SearchParams />;
 ```
 
-Now navigate to http://localhost:1234 and see that your have one input box that says "Seattle, WA". Try and type in it. You'll see that you can't modify it. Why? Let's think about how React works: when you type in the input, React detects that a DOM event happens. When that happens, React thinks _something_ may have changed so it runs a re-render. Providing your render functions are fast, this is a very quick operation. It then diffs what's currently there and what its render pass came up with. It then updates the minimum amount of DOM necessary.
+> 🚨 You'll have some errors in the console, that's okay.
+
+Now navigate to [http://localhost:5173/]() and see that your have one input box that says "Seattle, WA". Try and type in it. You'll see that you can't modify it. Why? Let's think about how React works: when you type in the input, React detects that a DOM event happens. When that happens, React thinks _something_ may have changed so it runs a re-render. Providing your render functions are fast, this is a very quick operation. It then diffs what's currently there and what its render pass came up with. It then updates the minimum amount of DOM necessary.
 
 Notice we're using `className` instead of `class` on the HTML element for CSS classes. This is because `class` is a reserved word in JS and JSX is still just JS. So instead they opted to use `className` which is the [name of the JS API][js-api] for interacting with class names.
 
@@ -71,7 +71,7 @@ const [location, updateLocation] = useState("");
 
 > I'm showing you how to do a "controlled form" in that we're using hooks to control each part of the form. In reality, it'd be better to leave these _uncontrolled_ (aka don't set the value) and wrap the whole thing in a form. Then we can listen for submit events and use that event to gather info off the form. This is less code and less burdensome to write. If you have a standard form sort of thing to write, do that an uncontrolled form. If you need to do dynamic validation, react to a user typing a la typeahead, or something of the ilk, then a controlled input is perfect, otherwise stick to uncontrolled.
 
-Let's add the ESLint rule. Run `npm install -D eslint-plugin-react-hooks@4.3.0`. Add this to ESLint:
+Let's add the ESLint rule. Run `npm install -D eslint-plugin-react-hooks@4.6.0`. Add this to ESLint:
 
 ```json
 {
@@ -83,7 +83,7 @@ Let's add the ESLint rule. Run `npm install -D eslint-plugin-react-hooks@4.3.0`.
 }
 ```
 
-> The order of extends isn't particularly important to us _except_ the Prettier ones _must_ be last. Those serve to turn off rules the others ones enable.
+> The order of extends isn't particularly important to us _except_ the Prettier one _must_ be last. That one serves to turn off rules the others ones enable.
 
 Let's next make the animal drop down.
 
@@ -97,20 +97,18 @@ const [animal, updateAnimal] = useState("");
 // under the location label
 <label htmlFor="animal">
   Animal
-  <label htmlFor="animal">
-    Animal
-    <select
-      id="animal"
-      value={animal}
-      onChange={(e) => {
-        updateAnimal(e.target.value);
-        updateBreed("");
-      }}
-      onBlur={(e) => {
-        updateAnimal(e.target.value);
-        updateBreed("");
-      }}
-    >
+  <select
+    id="animal"
+    value={animal}
+    onChange={(e) => {
+      updateAnimal(e.target.value);
+      updateBreed("");
+    }}
+    onBlur={(e) => {
+      updateAnimal(e.target.value);
+      updateBreed("");
+    }}
+  >
     <option />
     {ANIMALS.map((animal) => (
       <option key={animal} value={animal}>
