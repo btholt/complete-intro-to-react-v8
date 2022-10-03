@@ -131,23 +131,7 @@ const [breed, updateBreed] = useState("");
 const breeds = [];
 
 // under the animal label
-<label htmlFor="breed">
-  Breed
-  <select
-    disabled={!breeds.length}
-    id="breed"
-    value={breed}
-    onChange={(e) => updateBreed(e.target.value)}
-    onBlur={(e) => updateBreed(e.target.value)}
-  >
-    <option />
-    {breeds.map((breed) => (
-      <option key={breed} value={breed}>
-        {breed}
-      </option>
-    ))}
-  </select>
-</label>;
+h;
 ```
 
 So now we have a breed dropdown. The only really new thing we did was use the `disabled` property to disable the dropdown when you don't have any breeds. We're going to use the API to request breeds based on the animal selected. If you select `dog`, you want to see poodles, labradors, and chihuahuas and parrots, tabbies, and Maine coons. The API has and endpoint that if you give it a valid animal. We'll show you how to do that in the next lesson with effects.
@@ -155,5 +139,5 @@ So now we have a breed dropdown. The only really new thing we did was use the `d
 > 🏁 [Click here to see the state of the project up until now: 04-hooks][step]
 
 [babel]: https://babeljs.io/
-[step]: https://github.com/btholt/citr-v7-project/tree/master/04-hooks
+[step]: https://github.com/btholt/citr-v8-project/tree/master/04-hooks
 [js-api]: https://developer.mozilla.org/en-US/docs/Web/API/Element/className

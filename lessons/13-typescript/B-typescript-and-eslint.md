@@ -46,5 +46,5 @@ Now run `npm run lint` and marvel at all the stuff we get to fix!
 
 > 🏁 [Click here to see the state of the project up until now: typescript-1][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/typescript-1
+[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-1
 [rules]: https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules

@@ -128,5 +128,5 @@ That's it for context! Something like theming would be perfect for context. It's
 
 > 🏁 [Click here to see the state of the project up until now: 12-context][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/12-context
+[step]: https://github.com/btholt/citr-v8-project/tree/master/12-context
 [v4]: https://btholt.github.io/complete-intro-to-react-v4/context

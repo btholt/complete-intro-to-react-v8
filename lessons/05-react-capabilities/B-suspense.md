@@ -164,4 +164,4 @@ There are lots more you can check out in [the React docs here][docs].
 > 🏁 [Click here to see the state of the project up until now: 09-managing-state-in-class-components][step]
 
 [docs]: https://reactjs.org/docs/react-component.html
-[step]: https://github.com/btholt/citr-v7-project/tree/master/09-managing-state-in-class-components
+[step]: https://github.com/btholt/citr-v8-project/tree/master/09-managing-state-in-class-components

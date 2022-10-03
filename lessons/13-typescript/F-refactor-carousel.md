@@ -45,4 +45,4 @@ Carousel is done.
 
 > 🏁 [Click here to see the state of the project up until now: typescript-3][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/typescript-3
+[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-3

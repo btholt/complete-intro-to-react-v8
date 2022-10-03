@@ -127,5 +127,5 @@ Make sure you add `dist-server/` to your .gitignore here. We don't want to commi
 
 > 🏁 [Click here to see the state of the project up until now: server-side-rendering-1][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/server-side-rendering-1
-[app]: https://github.com/btholt/citr-v7-project/tree/master/12-portals-and-refs
+[step]: https://github.com/btholt/citr-v8-project/tree/master/server-side-rendering-1
+[app]: https://github.com/btholt/citr-v8-project/tree/master/12-portals-and-refs

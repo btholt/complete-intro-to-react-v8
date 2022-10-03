@@ -54,4 +54,4 @@ We're also using a generic here. Refs can be one of many things. In this case ou
 
 [mike]: https://frontendmasters.com/courses/typescript-v2/
 [dt]: https://www.definitelytyped.org
-[app]: https://github.com/btholt/citr-v7-project/tree/master/12-portals-and-refs
+[app]: https://github.com/btholt/citr-v8-project/tree/master/12-portals-and-refs

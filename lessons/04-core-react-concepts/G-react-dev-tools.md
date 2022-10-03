@@ -8,7 +8,7 @@ React has some really great tools to enhance your developer experience. We'll go
 
 React already has a lot of developer conveniences built into it out of the box. What's better is that they automatically strip it out when you compile your code for production.
 
-So how do you get the debugging conveniences then? Well, if you're using Parcel.js, it will compile your development server with an environment variable of `NODE_ENV=development` and then when you run `parcel build <entry point>` it will automatically change that to `NODE_ENV=production` which is how all the extra weight gets stripped out.
+So how do you get the debugging conveniences then? Well, if you're using Vite.js, it will compile your development server with an environment variable of `NODE_ENV=development` and then when you run `vite build` it will automatically change that to `NODE_ENV=production` which is how all the extra weight gets stripped out.
 
 Why is it important that we strip the debug stuff out? The dev bundle of React is quite a bit bigger and quite a bit slower than the production build. Make sure you're compiling with the correct environmental variables or your users will suffer.
 
@@ -16,19 +16,7 @@ Why is it important that we strip the debug stuff out? The dev bundle of React i
 
 React has a new strict mode. If you wrap your app in `<React.StrictMode></React.StrictMode>` it will give you additional warnings about things you shouldn't be doing. I'm not teaching you anything that would trip warnings from `React.StrictMode` but it's good to keep your team in line and not using legacy features or things that will be soon be deprecated.
 
-Go to App.js and wrap `<App />` in the render call in `<StrictMode>`.
-
-```javascript
-// import at top
-import { StrictMode } from "react";
-
-// replace root.render
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-```
+We are not going to add StrictMode to our app. One thing that StrictMode does with React 18 is run twice the initialization functions of your apps to check to see if they are indeed truly stateless. While in theory this is a good thing to assure, it's wasteful to ongoing continually do as it will double invoke your APIs while you're in development which is not something we want do now. Feel free to add to your app but we are not going to today.
 
 ## Dev Tools
 

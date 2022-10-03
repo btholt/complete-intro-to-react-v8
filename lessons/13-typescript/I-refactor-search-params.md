@@ -44,4 +44,4 @@ const json = (await res.json()) as PetAPIResponse;
 
 > 🏁 [Click here to see the state of the project up until now: typescript-4][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/typescript-4
+[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-4

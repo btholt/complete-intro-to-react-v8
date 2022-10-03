@@ -142,5 +142,5 @@ Now your project should pass lint.
 
 [airbnb]: https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 [standard]: https://standardjs.com/
-[step]: https://github.com/btholt/citr-v7-project/tree/master/03-jsx
+[step]: https://github.com/btholt/citr-v8-project/tree/master/03-jsx
 [prettier-react]: https://github.com/prettier/eslint-config-prettier#installation

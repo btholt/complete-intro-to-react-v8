@@ -79,4 +79,4 @@ That's it! That's how you make a modal using a portal in React. This used to be 
 > 🏁 [Click here to see the state of the project up until now: 13-portals-and-refs][step]
 
 [portal]: https://reactjs.org/docs/portals.html
-[step]: https://github.com/btholt/citr-v7-project/tree/master/13-portals-and-refs
+[step]: https://github.com/btholt/citr-v8-project/tree/master/13-portals-and-refs

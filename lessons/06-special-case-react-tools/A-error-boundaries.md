@@ -90,7 +90,7 @@ if (this.state.redirect) {
 
 > 🏁 [Click here to see the state of the project up until now: 11-error-boundaries][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/11-error-boundaries
+[step]: https://github.com/btholt/citr-v8-project/tree/master/11-error-boundaries
 [sentry]: https://sentry.io/
 [trackjs]: https://trackjs.com/
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself

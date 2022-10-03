@@ -8,7 +8,7 @@ In general I find two reasons to break a component into smaller components: reus
 
 Other times it can be useful to break concepts down into smaller concepts to make a component read better. For example, if we put all the logic for this entire page into one component, it would become pretty hard to read and manage. By breaking it down we can make each component easier to understand when you read it and thus maintain.
 
-Let's make a better display for our Pets components. Make a new file called Results.js.
+Let's make a better display for our Pets components. Make a new file called Results.jsx.
 
 ```javascript
 import Pet from "./Pet";
@@ -52,7 +52,7 @@ import Results from "./Results";
 
 Now you should be able to make request and see those propagated to the DOM! Pretty great!
 
-Let's go make Pet.js look decent:
+Let's go make Pet.jsx look decent:
 
 ```javascript
 const Pet = (props) => {
@@ -85,4 +85,4 @@ The previous way you would have done this is just keep track of a boolean loadin
 
 > 🏁 [Click here to see the state of the project up until now: 07-component-composition][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/07-component-composition
+[step]: https://github.com/btholt/citr-v8-project/tree/master/07-component-composition

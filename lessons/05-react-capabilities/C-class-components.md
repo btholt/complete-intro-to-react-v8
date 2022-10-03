@@ -171,6 +171,6 @@ data-index={index}
 
 > 🏁 [Click here to see the state of the project up until now: 10-class-components][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/10-class-components
+[step]: https://github.com/btholt/citr-v8-project/tree/master/10-class-components
 [babel]: https://babeljs.io/
 [docs]: https://reactjs.org/docs/react-component.html

@@ -99,6 +99,6 @@ Now if you click the header, it'll take you back to the Results page. Cool. Now 
 [rr]: https://reacttraining.com/react-router/
 [reach]: https://reach.tech/router/
 [rf]: https://twitter.com/ryanflorence
-[step]: https://github.com/btholt/citr-v7-project/tree/master/08-react-router
+[step]: https://github.com/btholt/citr-v8-project/tree/master/08-react-router
 [remix]: https://remix.run
 [element]: https://reactrouter.com/docs/en/v6/upgrading/v5#advantages-of-route-element

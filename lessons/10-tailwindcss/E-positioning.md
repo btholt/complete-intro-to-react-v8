@@ -26,4 +26,4 @@ Let's make Pet.js look great with a nice little overlay of their name, animal, b
 
 > 🏁 [Click here to see the state of the project up until now: tailwindcss][step]
 
-[step]: https://github.com/btholt/citr-v7-project/tree/master/tailwindcss
+[step]: https://github.com/btholt/citr-v8-project/tree/master/tailwindcss
