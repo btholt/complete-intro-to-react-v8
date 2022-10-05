@@ -4,95 +4,7 @@ description: "Class components work a little different from hooks in terms of ma
 
 Let's make a nice photo carousel of the pictures for the animal now. We're going to do this using class components which is the "older" way of doing React. It's still fairly common to write components this way and still supported (i.e. not deprecated) so it's useful for you to know how to do it.
 
-Make a new file called Carousel.js:
-
-```javascript
-import { Component } from "react";
-
-class Carousel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: 0,
-    };
-  }
-
-  render() {
-    const { active } = this.state;
-    const { images } = this.props;
-    return (
-      <div className="carousel">
-        <img src={images[active]} alt="animal" />
-        <div className="carousel-smaller">
-          {images.map((photo, index) => (
-            // eslint-disable-next-line
-            <img
-              key={photo}
-              src={photo}
-              className={index === active ? "active" : ""}
-              alt="animal thumbnail"
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-}
-
-Carousel.defaultProps = {
-  images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
-};
-
-export default Carousel;
-```
-
-- Every class component extends `React.Component`. Every class component must have a render method that returns some sort of JSX / markup / call to `React.createElement`.
-- Not every component needs to have a constructor. Many don't. I'll show you momentarily how you nearly never need to have one. In this case we need it to instantiate the state object (which we'll use instead of `useState`.) If you have a constructor, you _have_ to do the `super(props)` to make sure that the props are passed up to React so React can keep track of them.
-- Notice instead of getting props via parameters and state via `useState` we're getting it from the instance variables `this.state` and `this.props`. This is how it works with class components. Neither one will you mutate directly.
-  - `this.state` is the mutable state of the component (like useState). You'll use `this.setState` to mutate it (don't modify it directly.)
-  - `this.props` comes from the parent component, similar to parameter given to the render functions that we pull props out of.
-- Notice the weird setting of default props after the fact. The default props is so that `this.props.images` is always an array and so we don't have to do `if this.props.image ? … : …` sorts of things. We set it after the fact because each instace/copy of Carousel doesn't need its own defaultProps; they all only need one copy to read from and that's it. That's the reason for the weird API of setting it after that fact.
-
-## Lifecycle methods
-
-Class components have lifecycle methods. These for the most part are what `useEffect` does for function components. They're for doing things like making API calls, starting and ending transitions/animations, debugging, and other things like that. We don't need to use any here, but let's look at a few of the most common ones
-
-- `constructor` isn't necessarily a _React_ lifecylce method but we use it like one. It's where you do things that need to happen before the first render. Generally it's where you set the initial state.
-- `componentDidMount` is a function that's called after the first rendering is completed. This pretty similar to a `useEffect` call that only calls the first time. This is typically where you want to do data fetching. It doesn't have to be async; we just made it async here to make the data fetching easy.
-- `componentDidUpdate` is called after your state is updated. If you're doing something like Typeahead where you're making reactive requests to an API based on user input, this would be an ideal place to do it.
-- `componentWillUnmount` is typically a place for cleanup. Let's say you had to write a component to integrate with jQuery (I've had to write this, multiple times), this is where you'd clean up those references (like unattaching from DOM nodes and deleting them) so you don't leak memory. This method is invoked whenever a component is about to be destroyed.
-
-This class doesn't cover all the lifecycle methods but you can imagine having different timings for different capabilities of a component can be useful. For example, if you have a set of props that come in and you need to filter those props before you display them, you can use `getDerivedStateFromProps`. Or if you need to react to your component being removed from the DOM (like if you're subscribing to an API and you need to dispose of the subscription) you can use `componentWillUnmount`.
-
-There are lots more you can check out in [the React docs here][docs].
-
-Okay, so, let's make this a bit prettier via a small Babel change. The constructor is annoying. We can use something called class properties to make it a lot nicer and easier to read. Class properties are a new part of JavaScript so we need Parcel transform the code when Parcel transpiles our code. Luckily our config will do that by itself so no further changes are needed (previously we did need to.)
-
-So install the following:
-
-```bash
-npm i -D @babel/plugin-proposal-class-properties@7.16.7
-```
-
-Now create a file called `.babelrc` in the root of your project
-with the following:
-
-```json
-{
-  "plugins": ["@babel/plugin-proposal-class-properties"]
-}
-```
-
-Babel's core concept is a plugin. Every one sort of a transformation it can perform is encapsulated into a plugin. Here we're including one explicitly: transform-class-properties. Then we're including a _preset_ as well. A preset is just a group of plugins, grouped together for convenience. `env` is a particularly good one you should expect to normally use.
-
-Now with this, we can modify Details to be as so:
-
-```javascript
-// replace constructor
-state = { loading: true };
-```
-
-Loads easier to read, right?
+Make a new file called Carousel.jsx:
 
 ```javascript
 import { Component } from "react";
@@ -131,20 +43,35 @@ class Carousel extends Component {
 export default Carousel;
 ```
 
+- Every class component extends `React.Component`. Every class component must have a render method that returns some sort of JSX / markup / call to `React.createElement`.
+- We used to have a `constructor` function to set initial state. Now with class properties we can skip that. If you want to see how that looked, [check out v7 of this course][v7]
+- Notice instead of getting props via parameters and state via `useState` we're getting it from the instance variables `this.state` and `this.props`. This is how it works with class components. Neither one will you mutate directly.
+  - `this.state` is the mutable state of the component (like useState). You'll use `this.setState` to mutate it (don't modify it directly.)
+  - `this.props` comes from the parent component, similar to parameter given to the render functions that we pull props out of.
+- We also set `defaultProps` in the case that someone uses this component without providing it with props. This allows us to always assume that the photos prop is going to be an array instead of having to do a bunch of "if this thing exists" logic.
+
+## Lifecycle methods
+
+Class components have lifecycle methods. These for the most part are what `useEffect` does for function components. They're for doing things like making API calls, starting and ending transitions/animations, debugging, and other things like that. We don't need to use any here, but let's look at a few of the most common ones
+
+- `constructor` isn't necessarily a _React_ lifecylce method but we use it like one. It's where you do things that need to happen before the first render. Generally it's where you set the initial state.
+- `componentDidMount` is a function that's called after the first rendering is completed. This pretty similar to a `useEffect` call that only calls the first time. This is typically where you want to do data fetching. It doesn't have to be async; we just made it async here to make the data fetching easy.
+- `componentDidUpdate` is called after your state is updated. If you're doing something like Typeahead where you're making reactive requests to an API based on user input, this would be an ideal place to do it.
+- `componentWillUnmount` is typically a place for cleanup. Let's say you had to write a component to integrate with jQuery (I've had to write this, multiple times), this is where you'd clean up those references (like unattaching from DOM nodes and deleting them) so you don't leak memory. This method is invoked whenever a component is about to be destroyed.
+
+This class doesn't cover all the lifecycle methods but you can imagine having different timings for different capabilities of a component can be useful. For example, if you have a set of props that come in and you need to filter those props before you display them, you can use `getDerivedStateFromProps`. Or if you need to react to your component being removed from the DOM (like if you're subscribing to an API and you need to dispose of the subscription) you can use `componentWillUnmount`.
+
+There are lots more you can check out in [the React docs here][docs].
+
 Add the Carousel component to the Detail page.
 
 ```javascript
 // import at top
 import Carousel from "./Carousel";
 
-// at top of Details function
-const { animal, breed, city, state, description, name, images } = this.state;
-
 // first component inside div.details
-<Carousel images={images} />;
+<Carousel images={pet.images} />;
 ```
-
-- defaultProps does exactly what it sounds like: it allows you to set props that a component has by default if they're not furnished by parent. That way we don't have to do detection logic and can just assume they're always there.
 
 Let's make it so we can react to someone changing the photo on the carousel.
 
@@ -174,3 +101,4 @@ data-index={index}
 [step]: https://github.com/btholt/citr-v8-project/tree/master/10-class-components
 [babel]: https://babeljs.io/
 [docs]: https://reactjs.org/docs/react-component.html
+[v7]: https://btholt.github.io/complete-intro-to-react-v7/lessons/react-capabilities/class-components
