@@ -6,7 +6,7 @@ Frequently there's errors with APIs with malformatted or otherwise weird data. L
 
 This will also catch 404s on our API if someone give it an invalid ID!
 
-A component can only catch errors in its children, so that's important to keep in mind. It cannot catch its own errors. Let's go make a wrapper to use on Details.js. Make a new file called ErrorBoundary.js
+A component can only catch errors in its children, so that's important to keep in mind. It cannot catch its own errors. Let's go make a wrapper to use on Details.js. Make a new file called ErrorBoundary.jsx
 
 ```javascript
 // mostly code from reactjs.org/docs/error-boundaries.html
@@ -26,7 +26,7 @@ class ErrorBoundary extends Component {
       return (
         <h2>
           There was an error with this listing. <Link to="/">Click here</Link>{" "}
-          to back to the home page or wait five seconds.
+          to back to the home page.
         </h2>
       );
     }
@@ -42,7 +42,7 @@ export default ErrorBoundary;
 - A static method is one that can be called on the constructor. You'd call this method like this: `ErrorBoundary.getDerivedStateFromError(error)`. This method must be static.
 - If you want to call an error logging service, `componentDidCatch` would be an amazing place to do that. I can recommend [Sentry][sentry] and [TrackJS][trackjs].
 
-Let's go make Details use it. Go to Details.js
+Let's go make Details use it. Go to Details.jsx
 
 ```javascript
 // add import
@@ -52,7 +52,7 @@ import ErrorBoundary from "./ErrorBoundary";
 export default function DetailsErrorBoundary(props) {
   return (
     <ErrorBoundary>
-      <DetailsParent {...props} />
+      <Details {...props} />
     </ErrorBoundary>
   );
 }
@@ -60,33 +60,6 @@ export default function DetailsErrorBoundary(props) {
 
 - Now this is totally self contained. No one rendering Details has to know that it has its own error boundary. I'll let you decide if you like this pattern or if you would have preferred doing this in App.js at the Router level. Differing opinions exist.
 - We totally could have made ErrorBoundary a bit more flexible and made it able to accept a component to display in cases of errors. In general I recommend the "WET" code rule (as opposed to [DRY][dry], lol): Write Everything Twice (or I even prefer Write Everything Thrice). In this case, we have one use case for this component, so I won't spend the extra time to make it flexible. If I used it again, I'd make it work for both of those use cases, but not _every_ use case. On the third or fourth time, I'd then go back and invest the time to make it flexible.
-
-Let's make it redirect automatically after five seconds. We could do a set timeout in the `componentDidCatch` but let's do it with `componentDidUpdate` to show you how that works.
-
-```javascript
-// top
-import { Link, Navigate } from "react-router-dom";
-
-// add redirect
-state = { hasError: false, redirect: false };
-
-// under componentDidCatch
-componentDidUpdate() {
-  if (this.state.hasError) {
-    setTimeout(() => this.setState({ redirect: true }), 5000);
-  }
-}
-
-// first thing inside render
-if (this.state.redirect) {
-  return <Navigate to="/" />;
-} } else if (this.state.hasError) {
-  …
-}
-```
-
-- `componentDidUpdate` is how you react to state and prop changes with class components. In this case we're reacting to the state changing. You're also passed the previous state and props in the paremeters (which we didn't need) in case you want to detect what changed.
-- Rendering Navigate components is how you do redirects with React Router. You can also do it progamatically but I find this approach elegant.
 
 > 🏁 [Click here to see the state of the project up until now: 11-error-boundaries][step]
 
