@@ -68,15 +68,17 @@ const [showModal, setShowModal] = useState(false);
         </div>
       </div>
     </Modal>
-  ) : null;
+  ) : null; // you have to remove this semi-colon, my auto-formatter adds it back if I delete it
 }
 ```
 
 Notice that despite we're rendering a whole different part of the DOM we're still referencing the state in Details.jsx. This is the magic of Portals. You can use state but render in different parts of the DOM. Imagine a sidebar with contextual navigation. Or a contextual footer. It opens up a lot of cool possibilities. React Router has some cool features built into that take advantage of this as well.
 
+We'll add a "yes" function here in the next lesson
+
 That's it! That's how you make a modal using a portal in React. This used to be significantly more difficult to do but with portals it became trivial. The nice thing about portals is that despite the actual elements being in different DOM trees, these are in the same React trees, so you can do event bubbling up from the modal. Some times this is useful if you want to make your Modal more flexible (like we did.)
 
-> 🏁 [Click here to see the state of the project up until now: 12-portals-and-refs][step]
+> 🏁 [Click here to see the state of the project up until now: 13-portals-and-refs][step]
 
 [portal]: https://reactjs.org/docs/portals.html
-[step]: https://github.com/btholt/citr-v8-project/tree/master/12-portals-and-refs
+[step]: https://github.com/btholt/citr-v8-project/tree/master/13-portals-and-refs

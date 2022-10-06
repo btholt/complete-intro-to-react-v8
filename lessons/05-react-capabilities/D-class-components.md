@@ -96,9 +96,9 @@ data-index={index}
 - The data attribute comes back as a string. We want it to be a number, hence the `+`.
 - We're doing bad accessibility stuff. But this makes it a lot simpler for learning for now. But don't do this in production.
 
-> 🏁 [Click here to see the state of the project up until now: 10-class-components][step]
+> 🏁 [Click here to see the state of the project up until now: 11-class-components][step]
 
-[step]: https://github.com/btholt/citr-v8-project/tree/master/10-class-components
+[step]: https://github.com/btholt/citr-v8-project/tree/master/11-class-components
 [babel]: https://babeljs.io/
 [docs]: https://reactjs.org/docs/react-component.html
 [v7]: https://btholt.github.io/complete-intro-to-react-v7/lessons/react-capabilities/class-components
