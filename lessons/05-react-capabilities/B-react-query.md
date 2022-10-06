@@ -169,8 +169,17 @@ export default function useBreedList(animal) {
 
 This got _a lot_ simpler, didn't it? It's because react-query handles all the caching for us instead of us having to. Now go click around the animals drop down and see if it still works okay.
 
+## Mutations
+
+In this class we're just looking at fetching data from the server. These can be cached and we can avoid calling the server again if we have same parameters. However a mutation always needs to run: if we are trying to change something on the server, we can't avoid that call. That's where a mutation comes into play.
+
+[See the documentation here][mutations].
+
+Nearly all the same concepts at play, just a little different to handle the fact you're POSTing data to a server.
+
 > 🏁 [Click here to see the state of the project up until now: 09-react-query][step]
 
 [step]: https://github.com/btholt/citr-v8-project/tree/master/09-react-query
 [react-query]: https://tanstack.com/query/v4
 [spinners]: https://www.davidhu.io/react-spinners/
+[mutations]: https://tanstack.com/query/v4/docs/guides/mutations

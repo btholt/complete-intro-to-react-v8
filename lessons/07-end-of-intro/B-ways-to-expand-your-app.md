@@ -103,9 +103,9 @@ You should deploy your code to the cloud and tweet it at me! Great options for p
 - [Google Firebase][gcp]
 - [AWS Amplify][aws]
 
-## Use the Theme Selector in More Places
+## Make your app themeable via context
 
-We could do better than just using the theme selector just on buttons. Make a dark mode! Make a party mode! Add animiations! This would be great when paired with the Tailwind section from Intermediate React.
+Make a dark mode! Make a party mode! Add animiations! This would be great when paired with the Tailwind section from Intermediate React.
 
 ## Add a Navigation Bar
 
@@ -113,13 +113,11 @@ Right now we don't have a great navigation story for our little pet finding app.
 
 ## Play with other tools
 
-I showed you how to use Parcel but consider trying one of the newer build systems like [Vite], [Snowpack], [ESBuild], or any of the others. You could also use one of the popular mainstays like [Webpack][webpack] or [Rollup][rollup].
+I showed you how to use Vite but consider trying one of the newer build systems like [Parcel], [Snowpack], [ESBuild], or any of the others. You could also use one of the popular mainstays like [Webpack][webpack] or [Rollup][rollup].
 
 ## Let me know
 
-Please! Let's share all the great apps we make here so we can provide inspirations for others and get some high fives on the cool work we do.
-
-If you have a cool project you're particularly proud of, open a PR on this repo so that we all can see it! [Community repo][comm].
+Please! Let's share all the great apps we make here so we can provide inspirations for others and get some high fives on the cool work we do. Tweet it out and let me know.
 
 [pf]: https://www.petfinder.com/developers/
 [pf-sdk]: https://github.com/petfinder-com/petfinder-js-sdk
@@ -128,9 +126,8 @@ If you have a cool project you're particularly proud of, open a PR on this repo 
 [aws]: https://aws.amazon.com/amplify/
 [netlify]: https://www.netlify.com/
 [vercel]: https://vercel.com/
-[vite]: https://vitejs.dev/
+[parcel]: https://parceljs.org/
 [snowpack]: https://www.snowpack.dev/
 [esbuild]: https://esbuild.github.io/
 [webpack]: https://webpack.js.org/
 [rollup]: https://www.rollupjs.org/guide/en/
-[comm]: https://github.com/btholt/citrv6-community
