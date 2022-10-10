@@ -517,3 +517,8 @@ ol.sections-name .lesson-details {
   line-height: 24px;
   padding: 0px 5px;
 }
+
+.lesson-content iframe {
+  width: 100%;
+  height: 600px;
+}

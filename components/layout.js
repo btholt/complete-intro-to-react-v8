@@ -23,6 +23,14 @@ function Layout({ children }) {
             linkedin={courseInfo.social.linkedin}
           />
         </div>
+        <script async defer src="https://a.holt.courses/latest.js"></script>
+        <noscript>
+          <img
+            src="https://a.holt.courses/noscript.gif"
+            alt=""
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </noscript>
       </HeaderProvider>
     </CourseInfoProvider>
   );
