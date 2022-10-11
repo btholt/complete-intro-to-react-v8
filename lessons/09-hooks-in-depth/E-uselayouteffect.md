@@ -13,4 +13,6 @@ The only time you _should_ be using `useLayoutEffect` is to measure DOM nodes fo
 
 If you make the `useLayoutEffect` into a `useEffect` it will have a janky re-render where it'll flash before it renders correctly. This is exactly why we need `useLayoutEffect`.
 
+> Note if you drag "off" the textarea and let go of the mouse it won't measure the textarea. This is because when you click and hold something and then drag off of it, it doesn't trigger a click event. That makes sense, right? When you click something by mistake, what do you do? You drag off of it and let go. Same princple here.
+
 [ref]: https://stackblitz.com/edit/ir5?view=both&file=src/routes/UseLayoutEffect.jsx&hideExplorer=1&initialPath=/useLayoutEffect
