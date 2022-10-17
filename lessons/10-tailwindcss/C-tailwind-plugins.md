@@ -4,7 +4,7 @@ description: "Tailwind CSS has the ability to add plugins to augment its functio
 
 Our inputs look really gross. We could write our own components (basically reusable CSS classes, what a novel idea) but we're just going to use the good ones that Tailwind provides out of the box.
 
-Run `npm install -D @tailwindcss/forms@0.4.0`.
+Run `npm install -D @tailwindcss/forms@0.5.3`.
 
 Put this into your tailwind.config.js
 
@@ -28,10 +28,7 @@ Now add `className="w-60 mb-5 block disabled:opacity-50"` to the breed `<select>
 Replace the button with:
 
 ```javascript
-<button
-  className="rounded px-6 py-2 color text-white hover:opacity-50 border-none"
-  style={{ backgroundColor: theme }}
->
+<button className="rounded px-6 py-2 color text-white hover:opacity-50 border-none bg-orange-500">
   Submit
 </button>
 ```

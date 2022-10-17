@@ -47,7 +47,7 @@ Now we have the router working (but still have an issue)! Try navigating to [htt
 - If you're familiar with previous versions of React Router, quite a bit changed here. Gone is Switch, exact, and a load of other things. They broke a lot of things to bring in the best of Reach Router. It can be a slog to keep up with react-router's changes, but at the end of the day it's hard to argue they aren't improving quite a bit.
 - Previously this would have rendered both pages on the Details page because technically both pages match on a regex level. This changed with v6. Now it uses the same scoring system as Reach Router to pick the best route for each path. It's so much easier. I have yet to have any issue with it.
 
-So now let's make the two pages link to each other. Go to Pet.js.
+So now let's make the two pages link to each other. Go to Pet.jsx.
 
 ```javascript
 // at top
@@ -76,7 +76,7 @@ export default Details;
 
 The `useParams` hook is how you get params from React Router. It used to be through the props but now they prefer this API.
 
-Let's make the Adopt Me! header clickable too.
+Let's make the Adopt Me! header clickable too in App.jsx:
 
 ```javascript
 // import Link too

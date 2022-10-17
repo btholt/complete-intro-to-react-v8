@@ -69,4 +69,4 @@ Now that we've got that going, let's go write a test.
 [enzyme]: http://airbnb.io/enzyme/
 [istanbul]: https://istanbul.js.org
 [res]: https://raw.githubusercontent.com/btholt/complete-intro-to-react-v5/testing/__mocks__/@frontendmasters/res.json
-[app]: https://github.com/btholt/citr-v8-project/tree/master/12-portals-and-refs
+[app]: https://github.com/btholt/citr-v8-project/tree/master/14-context

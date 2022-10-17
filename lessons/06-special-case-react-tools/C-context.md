@@ -91,7 +91,7 @@ const [adoptedPet] = useContext(AdoptedPetContext);
     <div className="pet image-container">
       <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
     </div>
-  ) : null;
+  ) : null; // you have to remove this semi-colon, my auto-formatter adds it back if I delete it
 }
 ```
 

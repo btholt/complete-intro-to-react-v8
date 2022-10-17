@@ -78,7 +78,7 @@ const Details = () => {
   if (results.isLoading) {
     return (
       <div className="loading-pane">
-        <h2>loading ... </h2>
+        <h2 className="loader">🌀</h2>
       </div>
     );
   }
@@ -103,32 +103,6 @@ export default Details;
 - useQuery will actually use the queryClient that we instantiated above via context (we have a whole section later on context.)
 - The first thing you give to useQuery is the query key. It could be a string e.g. we could have done `details:1` as the key for details 1 (similar to a Redis strategy for key naming.) However I like the array methodology. You can give it an array of keys. So the first key is `details` and then a subkey of that is `1` and it has to match both. You can also do it with objects and we will momentarily.
 - The results object has a lot of booleans on it for isLoading, isError, isFetching, isPaused, etc. In this case react-query will make it _start_ its first fetch (but not finish) and then continue rendering. Therefore we _must_ handle the `isLoading` case (in addition to that just being a good idea)
-
-That's kind a boring loader. Let's see how to use an open source component off of npm.
-
-```bash
-npm install react-spinners@0.13.5
-```
-
-This will install a library of spinners we can use with React. [See the gallery of spinners here, choose your favorite][spinners].
-
-In your Details.jsx:
-
-```javascript
-// at top
-import { RingLoader } from "react-spinners";
-
-// replace loading conditional
-if (results.isLoading) {
-  return (
-    <div className="loading-pane">
-      <RingLoader size={250} />
-    </div>
-  );
-}
-```
-
-And here we're replacing our loader with something nicer.
 
 This should all work now! Notice if we navigate back and forth from a page, the first time it will load it and the second time it won't; it'll just pull it from the cache! Perfect! Exactly what we wanted.
 
@@ -181,5 +155,4 @@ Nearly all the same concepts at play, just a little different to handle the fact
 
 [step]: https://github.com/btholt/citr-v8-project/tree/master/09-react-query
 [react-query]: https://tanstack.com/query/v4
-[spinners]: https://www.davidhu.io/react-spinners/
 [mutations]: https://tanstack.com/query/v4/docs/guides/mutations

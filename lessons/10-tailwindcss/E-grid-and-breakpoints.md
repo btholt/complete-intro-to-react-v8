@@ -2,7 +2,7 @@
 description: "One of the most thrilling parts of Tailwind CSS is doing layouts and breakpoints. What would take you fifteen minutes can be done in seconds. See Brian use Tailwind to quickly throw together a responsive grid layout"
 ---
 
-This is probably what most sold me on Tailwind CSS. Let's say we want to make a nice sort of tiled layout for our search results for our pets. Tailwind makes this so easy. Head to Results.js and let's see this.
+This is probably what most sold me on Tailwind CSS. Let's say we want to make a nice sort of tiled layout for our search results for our pets. Tailwind makes this so easy. Head to Results.jsx and let's see this.
 
 ```javascript
 // replace outermost div

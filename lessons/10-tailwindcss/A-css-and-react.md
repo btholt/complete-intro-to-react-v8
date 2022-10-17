@@ -11,22 +11,26 @@ Tailwind however is a different approach to this. And it bears mentioning that T
 Let's get it set up. Run this:
 
 ```bash
-npm i -D tailwindcss@3.0.22 postcss@8.4.6 autoprefixer@10.4.2
+npm i -D tailwindcss@3.1.8 postcss@8.4.18 autoprefixer@10.4.12
 ```
 
 - Under the hood, Parcel processes all your CSS with PostCSS with the autoprefixer plugin. This works like Babel: it means you can write modern code and it'll make it backwards compatible with older browsers. Since we're modifying the PostCSS config (like we did with Babel earlier in this project in the Intro part) we have to give it the whole config now.
-- We're using Parcel 1 in this project. They're heads-down on making Parcel 2 a reality which supports PostCSS 8. Parcel 1 is stuck on PostCSS 7. Tailwind 2 requires PostCSS 8 but luckily they provide a compatibility library with PostCSS 7. That's what `npm:@tailwindcss/postcss7-compat@2.0.3` is doing: it's called an alias. We're installing `@tailwindcss/postcss7-compat` and then aliasing it to `tailwindcss`. If you're brave you could try upgrading to Parcel 2 and then this wouldn't be necessary.
 
-Okay, now let's get our Tailwind project going. Run `npx tailwindcss init`. Like `tsc init` for TypeScript, this will spit out a basic starting config in tailwind.config.js. Should look like
+Okay, now let's get our Tailwind project going.
+
+```bash
+npx tailwindcss init -p
+```
+
+Like `tsc init` for TypeScript, this will spit out a basic starting config in tailwind.config.js. Should look like
 
 ```javascript
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  content: ["./src/*.{html,js}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx,html}"],
   theme: {
     extend: {},
   },
-  variants: {},
   plugins: [],
 };
 ```
@@ -45,15 +49,15 @@ This is how we include all the things we need from Tailwind. This is what allows
 
 > There's a great Visual Studio Code extension you should install here: [Tailwind CSS IntelliSense][tw].
 
-Lastly, we have to create `.postcssrc` in root directory.
+Lastly, the `-p` of the bash command we ran earlier created a PostCSS config, `postcss.config.js`, for us and it should already look like this:
 
-```json
-{
-  "plugins": {
-    "autoprefixer": {},
-    "tailwindcss": {}
-  }
-}
+```javascript
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
 ```
 
 Now if you run your app you should the React app (and all the functionality should work) but it won't have any style. We're going to quickly restyle this whole app to show you how great Tailwind is and how quickly it lets you go.

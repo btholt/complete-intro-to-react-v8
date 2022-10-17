@@ -83,7 +83,7 @@ handleIndexClick = event => {
   });
 };
 
-// above img
+// above smaller img
 // eslint-disable-next-line
 
 // add to img

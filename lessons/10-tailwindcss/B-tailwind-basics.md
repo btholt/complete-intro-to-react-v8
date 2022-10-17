@@ -8,7 +8,7 @@ We are not going to be writing _any_ CSS (well, one little bit but THAT'S IT.) T
 
 > There are old class names from the previous CSS styling we had. Feel free to delete them or leave them. It doesn't matter. I haphazardly deleted them as I overwrote them with new class names.
 
-In App.js, put this:
+In App.jsx, put this:
 
 ```javascript
 // the div right inside <ThemeContext.Provider>
@@ -28,7 +28,7 @@ In App.js, put this:
 Let's do the whole header now.
 
 ```javascript
-<header className="w-full mb-10 text-center p-7 bg-gradient-to-b from-purple-400 via-pink-500 to-red-500">
+<header className="w-full mb-10 text-center p-7 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500">
   <Link className="text-6xl text-white hover:text-gray-200" to="/">
     Adopt Me!
   </Link>
@@ -37,15 +37,15 @@ Let's do the whole header now.
 
 - That's more what you'll see! Long class strings. I imagine some of you are upset looking at this. To be honest it's still strange to me. But we're also skinning a whole app with _zero_ CSS so it's a pretty compelling experience.
 - Like p and m, we have w and h. `w-1` would have a tiny width. `w-full` is width: 100%.
-- `bg-gradient-to-b from-purple-400 via-pink-500 to-red-500` is a gradient just using classes. `bg-gradient-to-b` says it goes from the top to bottom (you can do -to-l, -to-r, or -to-t as well.) The from is the start. The via is a middle stop, and the to is the end.
-- The purple-400 is a purple color and the 400 is the _lightness_ of it. 50 is nearly white, 900 is as dark as the color gets.
+- `bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500` is a gradient just using classes. `bg-gradient-to-b` says it goes from the top to bottom (you can do -to-l, -to-r, or -to-t as well.) The from is the start. The via is a middle stop, and the to is the end.
+- The yellow-400 is a yellow color and the 400 is the _lightness_ of it. 50 is nearly white, 900 is as dark as the color gets.
 - You can set your own colors via the theme but the default ones are really good.
 - `text-6xl` is a really big text size. They use the sizes sm, md, lg, xl, 2xl, etc. up to 9xl.
 - `text-center` will do `text-align: center`.
 - `hover:<stuff>` is how we do hover, focus, disabled, etc. It takes whatever is on the right and only applies it only when that state is true. (note: disabled doesn't work without some magic in our PostCSS 7 compat layer. We'll do that in a bit.)
 - Note: `<Link>` from react-router-dom will pass styles and classes down to the resulting `<a>` for you.
 
-Let's hop over to `SearchResults.js` (we're only doing SearchParams, I'll leave it to you to fix Details)
+Let's hop over to SearchResults.jsx (we're only doing SearchParams, I'll leave it to you to fix Details)
 
 ```javascript
 <div className="my-0 mx-auto w-11/12">
@@ -53,7 +53,13 @@ Let's hop over to `SearchResults.js` (we're only doing SearchParams, I'll leave 
     className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
     onSubmit={(e) => {
       e.preventDefault();
-      requestPets();
+      const formData = new FormData(e.target);
+      const obj = {
+        animal: formData.get("animal") ?? "",
+        breed: formData.get("breed") ?? "",
+        location: formData.get("location") ?? "",
+      };
+      setRequestParams(obj);
     }}
   >
     […]

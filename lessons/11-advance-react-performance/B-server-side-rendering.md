@@ -12,14 +12,15 @@ While the total time to when the page is actually interactive is comparable, if 
 
 First, we need to remove all references to `window` or anything browser related from a path that _could_ be called in Node. That means whenever we reference `window`, it'll have to be inside componentDidMount since componentDidMount doesn't get called in Node.
 
-We'll also have change where our app gets rendered. Make a new file called ClientApp.js. Put in there:
+We'll also have change where our app gets rendered. Make a new file called ClientApp.jsx. Put in there:
 
 ```javascript
-import { hydrate } from "react-dom";
-import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
+import { hydrateRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-hydrate(
+hydrateRoot(
+  document.getElementById("root"),
   <BrowserRouter>
     <App />
   </BrowserRouter>,
@@ -29,15 +30,12 @@ hydrate(
 
 This code will only get run in the browser, so any sort of browser related stuff can safely be done here (like analytics.) We're also using `React.hydrate` instead of `React.render` because this will hydrate existing markup with React magic ✨ rather than render it from scratch.
 
-Because ClientApp.js will now be the entry point to the app, not App.js, we'll need to fix that in the script tag in index.html. Change it from App.js to ClientApp.js
+Because ClientApp.jsx will now be the entry point to the app, not App.js, we'll need to fix that in the script tag in index.html. Change it from App.js to ClientApp.js
 
-Let's go fix App.js now:
+Let's go fix App.jsx now:
 
 ```javascript
 // remove react-dom import
-// remove BrowserRouter as Router from react-router-dom import
-
-// move <StrictMode> to wrapping the <App /> render
 
 // remove Router from <App />
 
@@ -45,66 +43,94 @@ Let's go fix App.js now:
 export default App;
 ```
 
-The Modal makes reference to window in its modular scope, let's move that reference inside the render function:
+Now let's make a ServerApp.jsx. We need this file to run through Vite so Node.js can render our app.
 
 ```javascript
-// replace modalRoot assignment
-let modalRoot;
+import { renderToPipeableStream } from "react-dom/server";
+import { StaticRouter } from "react-router-dom/server";
+import App from "./App";
 
-// in function
-modalRoot = modalRoot ? modalRoot : document.getElementById("modal");
+export default function render(url, opts) {
+  const stream = renderToPipeableStream(
+    <StaticRouter location={url}>
+      <App />
+    </StaticRouter>,
+    opts
+  );
+  return stream;
+}
 ```
 
-Now Modal doesn't reference window in the modular scope but it _does_ in the render function. This means you can't render a modal on initial page load. Since it's using the DOM to attach the portal, that sort of makes sense. Be careful of that. We're using a ternary to only look it up on the first render.
+This is code that will run in Node.js once we've told Vite to transpile it. This will create a server-readable stream of React markup that we can send to the user.
 
-We need a few more modules. Run `npm install express@4.17.1` to get the framework we need for Node.
+We need a few more modules. Run `npm install express@4.18.2` to get the framework we need for Node.
 
 Go change your index.html to use ClientApp.js instead of App.js
 
 ```html
-<script src="ClientApp.js"></script>
+<script type="module" src="./ClientApp.jsx"></script>
 ```
 
 Now in your package.json, add the following to your `"scripts"`
 
 ```json
-"build:client": "parcel build --public-url ./dist/ src/index.html",
-"build:server": "parcel build -d dist-server --target node server/index.js",
+// inside scripts
+"build:client": "vite build --outDir ../dist/client",
+"build:server": "vite build --outDir ../dist/server --ssr ServerApp.jsx",
 "build": "npm run build:client && npm run build:server",
-"start": "npm -s run build && node dist-server/index.js"
+"start": "node server.js",
+
+// outside scripts
+"type": "module",
 ```
 
-This will allow us to build the app into static (pre-compiled, non-dev) assets and then start our server. This will then let us run Parcel on our Node.js code too so we can use our React code directly in our App as well.
+This will allow us to build the app into static (pre-compiled, non-dev) assets and then start our server. This will also allow us to compile our app a second time so that Node.js can run it.
+
+We also have to identify to Node.js that we're using modules, not CommonJS which is where the type=module comes in.
 
 Let's finally go write our Node.js server:
 
 ```javascript
 import express from "express";
-import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom";
 import fs from "fs";
-import App from "../src/App";
+import path from "path";
+import { fileURLToPath } from "url";
+import renderApp from "./dist/server/ServerApp.js";
 
-const PORT = process.env.PORT || 3000;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const html = fs.readFileSync("dist/index.html").toString();
+const PORT = process.env.PORT || 3001;
+
+const html = fs
+  .readFileSync(path.resolve(__dirname, "./dist/client/index.html"))
+  .toString();
 
 const parts = html.split("not rendered");
 
 const app = express();
 
-app.use("/dist", express.static("dist"));
+app.use(
+  "/assets",
+  express.static(path.resolve(__dirname, "./dist/client/assets"))
+);
 app.use((req, res) => {
-  const staticContext = {};
-  const reactMarkup = (
-    <StaticRouter url={req.url} context={staticContext}>
-      <App />
-    </StaticRouter>
-  );
-
-  res.status(staticContext.statusCode || 200);
-  res.send(`${parts[0]}${renderToString(reactMarkup)}${parts[1]}`);
-  res.end();
+  res.write(parts[0]);
+  const stream = renderApp(req.url, {
+    onShellReady() {
+      stream.pipe(res);
+    },
+    onShellError() {
+      // do error handling
+    },
+    onAllReady() {
+      // last thing to write
+      res.write(parts[1]);
+      res.end();
+    },
+    onError(err) {
+      console.error(err);
+    },
+  });
 });
 
 console.log(`listening on http://localhost:${PORT}`);
@@ -112,20 +138,60 @@ app.listen(PORT);
 ```
 
 - [Express.js][ex] is a Node.js web server framework. It's the most common one and a simple one to learn.
-- We'll be listening on port 3000 (http://locahost:**3000**) unless a environment variable is passed in saying otherwise. We do this because if you try to deploy this, you'll need to watch for PORT.
-- We'll statically serve what Parcel built.
-- Anything that Parcel _doesn't_ serve, will be given our index.html. This lets the client-side app handle all the routing.
+- We'll be listening on port 3001 ([http://locahost:**3001**]()) unless a environment variable is passed in saying otherwise. We do this because if you try to deploy this, you'll need to watch for PORT.
+- We'll statically serve what Vite built.
+- Anything that Vite _doesn't_ serve, will be given our index.html. This lets the client-side app handle all the routing.
 - We read the compiled HTML doc and split it around our `not rendered` statement. Then we can slot in our markup in between the divs, right where it should be.
-- We use renderToString to take our app and render it to a string we can serve as HTML, sandwiched inside our outer HTML.
-- The `staticContext` object allows us to see what status code came back from React Router so we can appropriately 404 on pages that don't exist.
+- For crawlers (like Google), _don't_ pipe onShellReady, and just hold the whole thing back until onAllReady. Then it looks like a whole complete request to a crawler.
 
-Run `npm run start` and then open http://localhost:3000 to see your server side rendered app. Notice it displays markup almost instantly.
+Run `npm run start` and then open [http://localhost:3001]() to see your server side rendered app. Notice it displays markup almost instantly.
+
+This is rendering the whole app to a Node.js stream. As parts are finished, it streams markup to the user. There are other options to do with just as a static stream but what's cool about this one is that it works just out of the box with Suspense and React.lazy so it'll server-side render those components and not force a user to wait for them.
+
+## react-query and experimental fetch
+
+This still only builds the front page of the app and it does not actually fetch the data for our React app. What if we could send the user a totally complete page. I can give you a little preview of how easy it's going to be soon to do that.
+
+If you're on Node.js 18, skip this step. If you're on Node.js 16, you need to add this to your npm run start command in your package.json
+
+```json
+"start": "node --experimental-fetch server.js",
+```
+
+Node.js just shipped fetch as a feature. In Node.js 16 you need a flag to use it.
+
+Now head to App.jsx and modify where you create the react-query query client.
+
+```javascript
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      suspense: true,
+    },
+  },
+});
+```
+
+That `suspense` line will make react-query work with React's Suspense component which we were already using for React.lazy. This is experimental and very well could change in the future so don't ship this quite yet. But I wanted to show you how close we are!
+
+You can still accomplish this today but with a bit more code. A good way to do that would be:
+
+1. Fetch the API response first and cache it. Re-fetch it every so often (depending on how frequently that cache might get stale)
+1. Make `<App />` accept a prop that it then passes into react-query's initialData option. [See docs here for initialData][data]
+1. In `ServerApp.jsx`, pass your cached data into `<App />`
+1. Render a separate `<script>` tag to your page with a JS object containing that object. Make sure it loads before React.js bootstraps
+1. In `ClientApp.jsx` pass that into `<App />`.
+
+A lot of code, but it'd work too! As an exercise, this would be great for you to explore how all these pieces fit together.
 
 ## .gitignore
 
-Make sure you add `dist-server/` to your .gitignore here. We don't want to commit built code.
+Make sure you add `dist/` to your .gitignore here. We don't want to commit built code.
 
-> 🏁 [Click here to see the state of the project up until now: server-side-rendering-1][step]
+> 🏁 [Click here to see the state of the project up until now: server-side-rendering][step]
 
 [step]: https://github.com/btholt/citr-v8-project/tree/master/server-side-rendering-1
-[app]: https://github.com/btholt/citr-v8-project/tree/master/12-portals-and-refs
+[app]: https://github.com/btholt/citr-v8-project/tree/master/14-context
+[data]: https://tanstack.com/query/v4/docs/guides/ssr#using-initialdata
