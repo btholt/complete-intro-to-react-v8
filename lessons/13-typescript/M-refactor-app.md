@@ -5,10 +5,16 @@ description: "Brian quickly converts App.tsx and wraps up"
 Lastly, let's do App.tsx.
 
 ```tsx
-// Nothing!
+// replace useState
+const adoptedPet = useState(null as Pet | null);
+
+// under container DOM query at the end
+if (!container) {
+  throw new Error("no container to render to");
+}
 ```
 
-Because of the rest of the work we did, App needs no changes! Hooray! 🎉
+Just a few changes to 1. let TS know that null could be a Pet. and 2. to defend against a DOM without a container to render to.
 
 Last thing: open `index.html` and change the link from `App.js` to `App.tsx` and then you should be good to go!
 
@@ -20,6 +26,6 @@ Last thing, let's add a type check to our package.json just in case someone isn'
 
 Congrats! You finished TypeScript.
 
-> 🏁 [Click here to see the state of the project up until now: typescript-5][step]
+> 🏁 [Click here to see the state of the project up until now: typescript-4][step]
 
-[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-5
+[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-4

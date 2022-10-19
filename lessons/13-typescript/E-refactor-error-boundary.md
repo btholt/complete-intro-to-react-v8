@@ -10,19 +10,13 @@ Let's go do ErrorBoundary.tsx now
 
 ```tsx
 // import at top
-import { Component, ErrorInfo, ReactNode } from "react";
+import { Component, ErrorInfo, ReactElement } from "react";
 
-// delete constructor, replace with this:
-state = {
-  redirect: "",
-  hasError: false
-};
+// add return type of children
+class ErrorBoundary extends Component<{children: ReactElement}> { … }
 
-// add types and return types to parameters
-static getDerivedStateFromError(): { hasError: boolean; redirect: boolean } {}
-public componentDidCatch(error: Error, info: ErrorInfo): void {}
-componentDidUpdate(): void {}
-render(): ReactNode {}
+// add types to parameters
+componentDidCatch(error: Error, info: ErrorInfo) {}
 ```
 
 - We didn't have to change from a constructor to a public class property but it makes typing so much easier because TS knows how to handle it implicitly if you use public class properties.

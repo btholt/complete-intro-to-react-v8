@@ -5,9 +5,6 @@ description: "Brian quickly converts Pet.tsx"
 Let's do Pet.tsx
 
 ```tsx
-// import
-import { FunctionComponent } from "react";
-
 interface IProps {
   name: string;
   animal: string;
@@ -17,8 +14,9 @@ interface IProps {
   id: number;
 }
 
-const Pet: FunctionComponent<IProps> = props => { … }
+const Pet = (props: IProps) => { … }
 
 ```
 
-- Here we're telling TS that Pet is a Function Component for React and that it fits all the shapes of a React component.
+- We're just typing the props here.
+- Previously we used FunctionComponent (aka FC) but in this version we're not going to. It works just as well without it and it is not necessarily recommended anymore (it also not _not_ recommended, it's up to you.)

@@ -4,8 +4,7 @@ description: ""
 
 Let's take the time now to fix our ESLint. In previous versions of this course we used the project TSLint but that project has since been deprecated in favor of converging on ESLint. There's a project called `typescript-eslint` that bridges the gap between the two projects.
 
-1. Run `npm uninstall @babel/eslint-parser`
-1. Run `npm install -D eslint-import-resolver-typescript@2.4.0 @typescript-eslint/eslint-plugin@4.16.1 @typescript-eslint/parser@4.16.1`
+1. Run `npm install -D eslint-import-resolver-typescript@3.5.1 @typescript-eslint/eslint-plugin@5.40.1 @typescript-eslint/parser@5.40.1`
 1. Change your package.json lint entry to `"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",`
 1. Add the following to .eslintrc.json
 
@@ -22,13 +21,24 @@ Let's take the time now to fix our ESLint. In previous versions of this course w
 // replace parser
 "parser": "@typescript-eslint/parser",
 
-// add to settings array
-"import/parsers": {
-  "@typescript-eslint/parser": [".ts", ".tsx"]
-},
-"import/resolver": {
-  "typescript": {
-    "alwaysTryTypes": true
+// add to parserOptions
+"project": "./tsconfig.json",
+
+// replace settings object
+"settings": {
+  "react": {
+    "version": "detect"
+  },
+  "import/parsers": {
+    "@typescript-eslint/parser": [".ts", ".tsx"]
+  },
+  "import/resolver": {
+    "node": {
+      "extensions": [".js", ".jsx"]
+    },
+    "typescript": {
+      "alwaysTryTypes": true
+    }
   }
 }
 ```
@@ -46,5 +56,4 @@ Now run `npm run lint` and marvel at all the stuff we get to fix!
 
 > 🏁 [Click here to see the state of the project up until now: typescript-1][step]
 
-[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-1
-[rules]: https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+[rules]: https://typescript-eslint.io/rules/

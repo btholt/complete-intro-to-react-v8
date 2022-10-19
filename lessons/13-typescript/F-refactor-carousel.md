@@ -5,7 +5,7 @@ description: "Brian quickly converts Carousel.tsx"
 Now that that is done, let's go do Carousel.tsx
 
 ```tsx
-import { Component, MouseEvent, ReactNode } from "react";
+import { Component, MouseEvent } from "react";
 
 // above Carousel
 interface IProps {
@@ -15,13 +15,8 @@ interface IProps {
 // add types to class
 class Carousel extends Component<IProps> { … }
 
-// add types to state
-state = {
-  active: 0
-};
-
 // modify handleIndexClick
-handleIndexClick = (event: MouseEvent<HTMLElement>): void => {
+handleIndexClick = (event: MouseEvent<HTMLElement>) => {
   if (!(event.target instanceof HTMLElement)) {
     return;
   }
@@ -32,9 +27,6 @@ handleIndexClick = (event: MouseEvent<HTMLElement>): void => {
     });
   }
 };
-
-// add return type
-render(): ReactNode { }
 ```
 
 - React.Component is a generic, in that it can accept other types. Here we're telling it what its state and props will look like. We start the interfaces off with a capital I because this signifies that this is an interface. This is a common pattern and one TSLint enforced but ESLint doesn't by deafult. I'm showing you so you can make your own call.
@@ -43,6 +35,6 @@ render(): ReactNode { }
 
 Carousel is done.
 
-> 🏁 [Click here to see the state of the project up until now: typescript-3][step]
+> 🏁 [Click here to see the state of the project up until now: typescript-2][step]
 
-[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-3
+[step]: https://github.com/btholt/citr-v8-project/tree/master/typescript-2
