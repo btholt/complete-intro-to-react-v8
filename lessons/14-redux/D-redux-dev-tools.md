@@ -18,4 +18,4 @@ Hopefully you're well informed on the boons and busts of introducing Redux. It's
 [step]: https://github.com/btholt/citr-v8-project/tree/master/redux
 [fox]: https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/
 [chrome]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
-[fem]: https://frontendmasters.com/courses/redux-mobx/
+[fem]: https://frontendmasters.com/courses/redux-fundamentals/

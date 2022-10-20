@@ -8,7 +8,29 @@ TypeScript is a thin layer on top of JavaScript that adds the power of a static 
 
 This is going to be a brief intro: how to set it up and get going with it. If you want more TypeScript goodness, check out [Mike North's course][mike]. If you want further depth on specifically React and TypeScript, check out [Steve Kinney's course][steve]. Both are phenomenal teachers.
 
-First thing, `npm install -D typescript@4.8.4`. Then run `npx tsc --init`. `npx` will run the TypeScript tool directly from your node_modules and init your project for you. You'll see now a tsconfig.json. We don't need to set up anything else since Vite already knows how to handle TypeScript files. Open your new `tsconfig.json` file and uncomment the `jsx` field. This lets TypeScript that you're writing React. Then update the target to be `ES2022` so that you can use async / await and promises and all that.
+1. First thing, `npm install -D typescript@4.8.4`.
+1. Then run `npx tsc --init`. `npx` will run the TypeScript tool directly from your node_modules and init your project for you. You'll see now a tsconfig.json. We don't need to set up anything else since Vite already knows how to handle TypeScript files.
+1. Open your new `tsconfig.json` file and uncomment the `jsx` field. This lets TypeScript that you're writing React.
+1. Then update the target to be `ES2022` so that you can use async / await and promises and all that.
+1. Uncomment the `"module"` line line and make it `"module": "ES2022"`.
+1. Uncomment the `"moduleResolution": "node"` line
+
+You'll end up with something like this:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+```
 
 Next we need to install the types for our project. Not all projects are written in TypeScript so another project, DefinitelyTyped, provides third party types for your library. In order to install these types, run `npm install -D @types/react@18.0.21 @types/react-dom@18.0.6`. This will grab all these type definitions.
 
