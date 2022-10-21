@@ -8,6 +8,13 @@ Please let me know how you liked the course and definitely [tweet at me][holtbt]
 
 Thanks again and I'll see you [back on Frontend Masters!][fem]!
 
+## Next step projects
+
+- Write good tests to get 100% coverage on the whole project
+- Finish the migration from CSS to TailwindCSS
+- Combine a few of the sections. Try writing tests for TypeScript, TailwindCSS server-side rendering, etc.
+- Deploy your projects and tell me about it!
+
 [fem]: https://frontendmasters.com/teachers/brian-holt/
 [holtbt]: https://twitter.com/holtbt
 [star]: https://github.com/btholt/complete-intro-to-react-v6

@@ -11,7 +11,9 @@ Download the one you're using, open up your app, and mess around the Redux tab. 
 
 Hopefully you're well informed on the boons and busts of introducing Redux. It's great, just be careful.
 
-[If you want a deeper dive, check out the Frontend Masters course on Redux!][fem]
+[If you want a deeper dive, check out the Frontend Masters course on Redux!][fem].
+
+[If you want to see how to do raw Redux without RTK, check out the previous version of this course][ir4]
 
 > 🏁 [Click here to see the state of the project up until now: redux][step]
 
@@ -19,3 +21,4 @@ Hopefully you're well informed on the boons and busts of introducing Redux. It's
 [fox]: https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/
 [chrome]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 [fem]: https://frontendmasters.com/courses/redux-fundamentals/
+[ir4]: https://frontendmasters.com/courses/intermediate-react-v4/redux/

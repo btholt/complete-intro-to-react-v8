@@ -7,12 +7,12 @@ Now we want to test some UI interaction. If a user does X then we want to verify
 
 In general I do like these kinds of tests. They tell a user story: if a user clicks a thumbnail they expect to see the hero image change to that. It's not a technical implementation but a reflection of what a user expects from you app.
 
-Go create in your `__tests__` directory a file called Carousel.test.js. In there put:
+Go create in your `__tests__` directory a file called Carousel.test.jsx. In there put:
 
 ```javascript
-import { expect, test } from "@jest/globals";
+import { expect, test } from "vitest";
 import { render } from "@testing-library/react";
-import Carousel from "../Carousel.js";
+import Carousel from "../Carousel";
 
 test("lets users click on thumbnails to make them the hero", async () => {
   const images = ["0.jpg", "1.jpg", "2.jpg", "3.jpg"];
@@ -25,10 +25,10 @@ test("lets users click on thumbnails to make them the hero", async () => {
     const image = images[i];
 
     const thumb = await carousel.findByTestId(`thumbnail${i}`);
-    thumb.click();
+    await thumb.click();
 
     expect(hero.src).toContain(image);
-    expect(thumb.classList).toContain("active");
+    expect(Array.from(thumb.classList)).toContain("active");
   }
 });
 ```
