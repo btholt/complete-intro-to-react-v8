@@ -1,5 +1,6 @@
 ---
 description: "Brian teaches you to set up the latest hotness in CSS for large scale projects, Tailwind CSS."
+title: "CSS and React"
 ---
 
 There are many ways to do CSS with React. Even just in this course I've done several ways with [style-components][sc] and [emotion][emotion]. Both of those are fantastic pieces of software and could definitely still be used today. As is the case when I teach this course I try to cover the latest material and what I think is the current state-of-the-art of the industry and today I think that is [TailwindCSS][tailwind].

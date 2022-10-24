@@ -74,5 +74,3 @@ test("displays a non-default thumbnail", async () => {
 ```
 
 Bam! Some easy React testing there for you.
-
-[jest-env]: https://jestjs.io/docs/configuration#testenvironment-string

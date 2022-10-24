@@ -2,10 +2,10 @@
 description: ""
 ---
 
-Let's write a second test for actually making a request with our custom hook, useBreedList. But we have a problem: we don't actually want to `fetch` from our API. This can be slow and cause unnecessary load on a server or unnecessary complexity of spinning up a testing API. We can instead mock the call. A mock is a fake implementation. We _could_ write our own fake fetch but a good one already exists for Jest called jest-fetch-mock so let's install that. Run
+Let's write a second test for actually making a request with our custom hook, useBreedList. But we have a problem: we don't actually want to `fetch` from our API. This can be slow and cause unnecessary load on a server or unnecessary complexity of spinning up a testing API. We can instead mock the call. A mock is a fake implementation. We _could_ write our own fake fetch but a good one already exists for Vitest called vitest-fetch-mock so let's install that. Run
 
 ```bash
-npm install -D jest-fetch-mock@0.2.1
+npm install -D vitest-fetch-mock@0.2.1
 ```
 
 We now need to make it so Jest implements this mock before we run our tests. We can make it run a set up script by putting this in our vite.config.js:

@@ -4,13 +4,13 @@ description: ""
 
 > Please start with a fresh copy of this app: [Adopt Me!][app]
 
-This is meant to be a very brief treatise on how to do testing on React applications. This will be a brief intro on how to set up Jest tests for the application we just created.
+This is meant to be a very brief treatise on how to do testing on React applications. This will be a brief intro on how to set up Vitest tests for the application we just created.
 
 ## Testing with Vitest
 
 [Vitest][vitest] is a test runner made by the fine folks who make Vite (as well as Vue.) The idea behind Vitest is that you already have a complete build pipeline for making an app, why should that pipeline be any different for test? It shouldn't; you want your testing environment to look as much like your app environment as possible.
 
-They designed it to be a drop-in replacement for Jest which is what I have taught for this course since the beginning. Jest is great and still a very viable tool to use for testing, even with Vite. We're just going to use Vitest because 1. we don't have to do any more configuration and 2. 100% of what you will learn in here is going to be useful if you use Jest. Win-win.
+They designed it to be a drop-in replacement for [Jest][jest] which is what I have taught for this course since the beginning. Jest is great and still a very viable tool to use for testing, even with Vite. We're just going to use Vitest because 1. we don't have to do any more configuration and 2. 100% of what you will learn in here is going to be useful if you use Jest. Win-win. If you want to learn Jest specifically, [take a look at Intermediat React v4's testing section.][v4]
 
 Also, fun side note: [Jest is now an OpenJS project and no longer directly under Facebook][fb]. Good news for everyone.
 
@@ -30,7 +30,7 @@ Let's go add an npm script. In your package.json.
 "test": "vitest"
 ```
 
-Fun trick: if you call it test, npm lets you run that command as just `npm t`.
+> Fun trick: if you call it test, npm lets you run that command as just `npm t`.
 
 This command let's you run Jest in an interactive mode where it will re-run tests selectively as you save them. This lets you get instant feedback if your test is working or not. This is probably my favorite feature of Vitest.
 
@@ -53,3 +53,4 @@ Now that we've got that going, let's go write a test.
 [app]: https://github.com/btholt/citr-v7-project/tree/master/12-portals-and-refs
 [fb]: https://twitter.com/cpojer/status/1524419433938046977
 [hd]: https://github.com/capricorn86/happy-dom
+[v4]: https://frontendmasters.com/courses/intermediate-react-v4/setup-jest-testing-library/
