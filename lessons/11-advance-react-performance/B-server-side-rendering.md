@@ -192,6 +192,6 @@ Make sure you add `dist/` to your .gitignore here. We don't want to commit built
 
 > 🏁 [Click here to see the state of the project up until now: server-side-rendering][step]
 
-[step]: https://github.com/btholt/citr-v8-project/tree/master/server-side-rendering-1
+[step]: https://github.com/btholt/citr-v8-project/tree/master/server-side-rendering
 [app]: https://github.com/btholt/citr-v8-project/tree/master/14-context
 [data]: https://tanstack.com/query/v4/docs/guides/ssr#using-initialdata

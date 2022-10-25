@@ -39,7 +39,7 @@ I have been working with React for a long time. [Here's my tweet][tweet] from wh
 
 When I'm not working or developing new Frontend Masters courses, you'll find me in Seattle, WA. I love to travel, hang out with my wife and son, get out of breath on my Peloton, play Dota 2 and Overwatch poorly, as well as drink Islay Scotches, local IPAs and fruity coffees.
 
-![Brian teaching](./images/brian.jpg)
+![Brian teaching](./images/social-share-cover.jpg)
 
 Catch up with me on social media! I'll be honest: I'm not great at responding at DMs. The best way to talk to me is just to tweet at me.
 
