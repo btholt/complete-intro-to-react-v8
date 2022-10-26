@@ -36,7 +36,7 @@ const queryClient = new QueryClient({
 // inside <BrowserRouter> wrapping everything inside it
 <QueryClientProvider client={queryClient}>
  […]
-</QueryClient>
+</QueryClientProvider>
 ```
 
 This will wrap our app with the provider necessary to power react-query. We have to give it cache and stale times so that it will actually use its caching layer. Otherwise it'll fetch each time. Here we're saying "never invalidate" but in many apps you'd probably want to still fetch every few minutes or so.
