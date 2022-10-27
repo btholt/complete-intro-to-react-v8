@@ -46,7 +46,7 @@ test("gives an empty list with no animal", async () => {
 
 It's a little weird to implement a fake component to test something (we're dangerously close to the line of testing implementation details) but this is essentially library code and we want to assure ourselves this code works if we use it frequently in our code base. We also have to provide for the query provider because it relies on it being there. We're giving it a `retry: false` key-value pair because we want it to fail fast instead of retrying.
 
-We can make this better though. There's a library called `@testing-library/react-hooks` that hides some of these details from us. Let's run `npm install -D @testing-library/react-hooks@7.0.2` and rewrite our test to look like this.
+We can make this better though. Let's rewrite our test to look like this:
 
 ```javascript
 import { expect, test } from "vitest";
