@@ -4,6 +4,14 @@ description: "Brian quickly converts App.tsx and wraps up"
 
 Lastly, let's do App.tsx.
 
+First, we'll need to import our Pet interface:
+
+```tsx
+import { Pet } from "./APIResponsesTypes";
+```
+
+Then we can use it to check our App component's state:
+
 ```tsx
 // replace useState
 const adoptedPet = useState(null as Pet | null);
