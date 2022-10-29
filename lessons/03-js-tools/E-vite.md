@@ -74,7 +74,7 @@ Now let's set up our scripts to start Vite. In package.json, put:
 
 `dev` will start the devlopment server, typically on [http://localhost:5173/](). `build` will prepare static files to be deployed (to somewhere like GitHub Pages, Vercel, Netlify, AWS S3, etc.) `preview` lets you preview your production build locally.
 
-> Please close the `file:///` browser tabs you have open and only use the `localhost:1234` ones. Now that we're using Parcel the former won't work anymore! If you see something about `CORS` errors in your console it's because you're probably still looking at the file:/// version and not the local dev server
+> Please close the `file:///` browser tabs you have open and only use the `localhost:1234` ones. Now that we're using Vite the former won't work anymore! If you see something about `CORS` errors in your console it's because you're probably still looking at the file:/// version and not the local dev server
 
 ## Alternatives
 
