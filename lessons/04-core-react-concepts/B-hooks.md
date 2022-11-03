@@ -48,14 +48,14 @@ So if we type in our input and it re-renders, what gets out in the `input` tag? 
 import { useState } from "react";
 
 // replace location
-const [location, updateLocation] = useState("");
+const [location, setLocation] = useState("");
 
 // replace input
 <input
   id="location"
   value={location}
   placeholder="Location"
-  onChange={(e) => updateLocation(e.target.value)}
+  onChange={(e) => setLocation(e.target.value)}
 />;
 ```
 
@@ -65,7 +65,7 @@ const [location, updateLocation] = useState("");
 - Because the previous point is so absolutely critical, the React team has provided us with a lint rule that help us not fall into that trap. That lint rule relies on us, the developers, to follow the convention of calling our hooks `useXxxxxx`. If you're willing to do that, the lint rules will guard you from calling the hooks out of order.
 - The argument given to `useState` is the default value. In our case, we could give it `"Seattle, WA"` as our default value but let's give it a default empty string value.
 - `useState` returns to us an array with two things in it: the current value of that state and a function to update that function. We're using a feature of JavaScript called destructuring to get both of those things out of the array.
-- We use the `updateLocation` function in the `onChange` attribute of the input. Every time the input is typed into, it's going to call that function which calls `updateLocation` with what has been typed into the input. When `updateLocation` is called, React knows that its state has been modified and kicks off a re-render.
+- We use the `setLocation` function in the `onChange` attribute of the input. Every time the input is typed into, it's going to call that function which calls `setLocation` with what has been typed into the input. When `setLocation` is called, React knows that its state has been modified and kicks off a re-render.
 - You can make your own custom hooks; `useState` is just one of many.
 - Historically, React has been written using `class`es with state being on the instance of the component. This is still a supported pattern in React. We'll see how to do it later.
 
@@ -92,7 +92,7 @@ Let's next make the animal drop down.
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 // under location
-const [animal, updateAnimal] = useState("");
+const [animal, setAnimal] = useState("");
 
 // under the location label
 <label htmlFor="animal">
@@ -101,12 +101,12 @@ const [animal, updateAnimal] = useState("");
     id="animal"
     value={animal}
     onChange={(e) => {
-      updateAnimal(e.target.value);
-      updateBreed("");
+      setAnimal(e.target.value);
+      setBreed("");
     }}
     onBlur={(e) => {
-      updateAnimal(e.target.value);
-      updateBreed("");
+      setAnimal(e.target.value);
+      setBreed("");
     }}
   >
     <option />
@@ -127,7 +127,7 @@ Let's make a third dropdown so you can select a breed as well as an animal.
 
 ```javascript
 // under your other state inside the component
-const [breed, updateBreed] = useState("");
+const [breed, setBreed] = useState("");
 const breeds = [];
 
 // under the animal label
