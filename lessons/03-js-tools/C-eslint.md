@@ -44,7 +44,7 @@ Worth adding three things here:
 - We can use our fix trick this way: `npm run lint -- --fix`.
 - We're going to both JS and JSX.
 
-ESLint is a cinch to get working with [Visual Studio Code][vscode]. Just down [the extension][vscode-eslint].
+ESLint is a cinch to get working with [Visual Studio Code][vscode]. Just download [the extension][vscode-eslint].
 
 ## Alternatives
 
