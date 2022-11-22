@@ -101,6 +101,4 @@ The final ESLint file looks like this:
 }
 ```
 
-> 🏁 [Click here to see the state of the project up until now: typescript-1][step]
-
 [rules]: https://typescript-eslint.io/rules/
