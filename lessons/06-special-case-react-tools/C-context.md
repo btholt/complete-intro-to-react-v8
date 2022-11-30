@@ -57,8 +57,7 @@ import AdoptedPetContext from "./AdoptedPetContext";
 
 // top of SearchParams function body
 const navigate = useNavigate();
-// eslint-disable-next-line no-unused-vars
-const [_, setAdoptedPet] = useContext(AdoptedPetContext);
+const [, setAdoptedPet] = useContext(AdoptedPetContext);
 
 // replace Yes button
 <button
