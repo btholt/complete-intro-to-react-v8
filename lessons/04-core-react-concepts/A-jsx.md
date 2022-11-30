@@ -35,8 +35,6 @@ Notice the strange `{props.name}` syntax: this is how you output JavaScript expr
 
 > Notice we don't have to do `import React from 'react'` here like we used to. The latest version of JSX handles that for you so you only need to explicitly import the React package when you need to use something from it; otherwise feel free to do JSX without having to import React!
 
-Notice you still have to import React despite React not being explicitly used. Remember that JSX is compiled to `React.createElement` calls. Anywhere you use JSX, you need to import React.
-
 So now JSX is demystified a bit, let's go convert App.js.
 
 ```javascript
@@ -133,7 +131,7 @@ This particular configuration has a lot of rules to help you quickly catch commo
 - react is mostly common React bugs like not calling one of your props children.
 - `eslint-plugin-react` now requires you to inform of it what version of React you're using. We're telling it here to look at the package.json to figure it out.
 - `"react/react-in-jsx-scope": 0` is new since you used to have to import React everywhere but now with the recent revision of React you don't need to.
-- Prop types are allow you to runtime type props to a component. In general if you're interested in doing that just use TypeScript.
+- Prop types allow you to add types to a component's props at runtime. In general if you're interested in doing that just use TypeScript.
 - We need to set the import plugin to look for both js and jsx extensions or else it won't resolve imports for us.
 
 Now your project should pass lint.
