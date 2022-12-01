@@ -36,7 +36,7 @@ module.exports = {
 };
 ```
 
-Now, let's go modify our `style.css` file.
+Now, let's go and replace contents of our `style.css` file with the following:
 
 ```css
 @tailwind base;
