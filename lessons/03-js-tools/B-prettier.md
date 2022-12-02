@@ -36,7 +36,7 @@ First run `npm install -D prettier@2.7.1`. `-D` means it's for development only.
 
 Now you can run `yarn format` or `npm run format` and it will run that command. This means we don't have to remember that mess of a command and just have to remember format. Nice, right? We'll be leaning on this a lot during this course.
 
-> Note the the `@2.7.1` portion. For the purposes of making this course not break in the future, I have you install the _exact_ version of packages I used when I made this course. As is natural, pacakges change and progress over time and I can't anticipate how that will happen. So I'd suggest you use the same packages I do as you do this course (even if npm yells at you for security vulnerabilites). As soon as you're done with the course, feel free to go update the versions to the latest and see if anything breaks.
+> Note the the `@2.7.1` portion. For the purposes of making this course not break in the future, I have you install the _exact_ version of packages I used when I made this course. As is natural, packages change and progress over time and I can't anticipate how that will happen. So I'd suggest you use the same packages I do as you do this course (even if npm yells at you for security vulnerabilites). As soon as you're done with the course, feel free to go update the versions to the latest and see if anything breaks.
 
 [jlongster]: https://twitter.com/jlongster
 [prettier]: https://github.com/prettier/prettier

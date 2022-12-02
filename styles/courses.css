@@ -251,6 +251,7 @@ header .cta-btn {
 
 .lesson p {
   clear: both;
+  margin-bottom: 1rem;
 }
 
 .lesson p,
@@ -333,7 +334,7 @@ blockquote {
   border: 2px solid var(--emphasized-border);
   border-radius: 5px;
   width: 100%;
-  margin: 10px 0;
+  margin: 10px 0 1rem;
 }
 
 blockquote > *:last-child {
