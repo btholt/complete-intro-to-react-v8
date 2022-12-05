@@ -10,7 +10,7 @@ Enter server-side rendering. This is a technique where you run React on your Nod
 
 While the total time to when the page is actually interactive is comparable, if a bit slower, the time to when the user _sees_ something for the first time should be much faster, hence why this is a popular technique. So let's give it a shot.
 
-First, we need to remove all references to `window` or anything browser related from a path that _could_ be called in Node. That means whenever we reference `window`, it'll have to be inside componentDidMount since componentDidMount doesn't get called in Node.
+First, we need to remove all references to `window` or anything browser related from a path that _could_ be called in Node. That means whenever we reference `window`, it'll have to be inside `hydrateRoot` since `hydrateRoot` doesn't get called in Node.
 
 We'll also have to change where our app gets rendered. Make a new file called ClientApp.jsx. Put in there:
 
