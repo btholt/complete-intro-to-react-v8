@@ -11,7 +11,7 @@ We are not going to be writing _any_ CSS (well, one little bit but THAT'S IT.) T
 In App.jsx, put this:
 
 ```javascript
-// the div right inside <ThemeContext.Provider>
+// the outer div that wraps <BrowserRouter>
 <div
   className="p-0 m-0"
   style={{
