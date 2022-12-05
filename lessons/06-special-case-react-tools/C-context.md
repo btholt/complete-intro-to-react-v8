@@ -55,7 +55,7 @@ import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AdoptedPetContext from "./AdoptedPetContext";
 
-// top of SearchParams function body
+// top of Details function body
 const navigate = useNavigate();
 // eslint-disable-next-line no-unused-vars
 const [_, setAdoptedPet] = useContext(AdoptedPetContext);

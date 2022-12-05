@@ -146,8 +146,7 @@ This is how to use Redux from a write persepctive (we'll look at read in a sec.)
 Okay, let's go do writing. Hop on over to SearchParams.js
 
 ```jsx
-// delete
-// import AdoptedPetContext from "./AdoptedPetContext";
+// delete import AdoptedPetContext from "./AdoptedPetContext";
 
 import { useState } from "react"; // drop useContext
 import { useSelector } from "react-redux";
