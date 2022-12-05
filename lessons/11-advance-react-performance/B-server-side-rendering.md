@@ -12,7 +12,7 @@ While the total time to when the page is actually interactive is comparable, if 
 
 First, we need to remove all references to `window` or anything browser related from a path that _could_ be called in Node. That means whenever we reference `window`, it'll have to be inside componentDidMount since componentDidMount doesn't get called in Node.
 
-We'll also have change where our app gets rendered. Make a new file called ClientApp.jsx. Put in there:
+We'll also have to change where our app gets rendered. Make a new file called ClientApp.jsx. Put in there:
 
 ```javascript
 import { hydrateRoot } from "react-dom/client";
@@ -23,14 +23,17 @@ hydrateRoot(
   document.getElementById("root"),
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );
 ```
 
 This code will only get run in the browser, so any sort of browser related stuff can safely be done here (like analytics.) We're also using `React.hydrate` instead of `React.render` because this will hydrate existing markup with React magic ✨ rather than render it from scratch.
 
 Because ClientApp.jsx will now be the entry point to the app, not App.js, we'll need to fix that in the script tag in index.html. Change it from App.js to ClientApp.js
+
+```html
+<script type="module" src="./ClientApp.jsx"></script>
+```
 
 Let's go fix App.jsx now:
 
@@ -65,12 +68,6 @@ This is code that will run in Node.js once we've told Vite to transpile it. This
 
 We need a few more modules. Run `npm install express@4.18.2` to get the framework we need for Node.
 
-Go change your index.html to use ClientApp.js instead of App.js
-
-```html
-<script type="module" src="./ClientApp.jsx"></script>
-```
-
 Now in your package.json, add the following to your `"scripts"`
 
 ```json
@@ -88,7 +85,7 @@ This will allow us to build the app into static (pre-compiled, non-dev) assets a
 
 We also have to identify to Node.js that we're using modules, not CommonJS which is where the type=module comes in.
 
-Let's finally go write our Node.js server:
+Let's create 'server.js' in our project root and finally go write our Node.js server:
 
 ```javascript
 import express from "express";
@@ -137,8 +134,8 @@ console.log(`listening on http://localhost:${PORT}`);
 app.listen(PORT);
 ```
 
-- [Express.js][ex] is a Node.js web server framework. It's the most common one and a simple one to learn.
-- We'll be listening on port 3001 ([http://locahost:**3001**]()) unless a environment variable is passed in saying otherwise. We do this because if you try to deploy this, you'll need to watch for PORT.
+- [Express.js][https://expressjs.com/] is a Node.js web server framework. It's the most common one and a simple one to learn.
+- We'll be listening on port 3001 ([http://locahost:**3001**]()) unless an environment variable is passed in saying otherwise. We do this because if you try to deploy this, you'll need to watch for PORT.
 - We'll statically serve what Vite built.
 - Anything that Vite _doesn't_ serve, will be given our index.html. This lets the client-side app handle all the routing.
 - We read the compiled HTML doc and split it around our `not rendered` statement. Then we can slot in our markup in between the divs, right where it should be.
