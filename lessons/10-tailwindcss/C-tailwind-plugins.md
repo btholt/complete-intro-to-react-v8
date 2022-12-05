@@ -28,7 +28,7 @@ Now add `className="w-60 mb-5 block disabled:opacity-50"` to the breed `<select>
 Replace the button with:
 
 ```javascript
-<button className="rounded px-6 py-2 color text-white hover:opacity-50 border-none bg-orange-500">
+<button className="rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500">
   Submit
 </button>
 ```
