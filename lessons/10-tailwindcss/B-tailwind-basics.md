@@ -68,5 +68,5 @@ Let's hop over to SearchResults.jsx (we're only doing SearchParams, I'll leave i
 ```
 
 - `rounded-lg` is a "large" rounding of the corners i.e. border-radius.
-- `shadow-lg` is a "large" border shadow.
+- `shadow-lg` is a "large" box shadow.
 - `flex` makes the display mode flex. `flex-col` makes it columns. `justify-center` makes it justify-content center. `items-center` makes it `align-items: center`. Net result is that you have centered horizontally and vertically items in a vertical direction.
