@@ -15,7 +15,7 @@ Let's get it set up. Run this:
 npm i -D tailwindcss@3.1.8 postcss@8.4.18 autoprefixer@10.4.12
 ```
 
-- Under the hood, Parcel processes all your CSS with PostCSS with the autoprefixer plugin. This works like Babel: it means you can write modern code and it'll make it backwards compatible with older browsers. Since we're modifying the PostCSS config (like we did with Babel earlier in this project in the Intro part) we have to give it the whole config now.
+- Under the hood, Vite processes all your CSS with PostCSS with the autoprefixer plugin. This works like Babel: it means you can write modern code and it'll make it backwards compatible with older browsers. Since we're modifying the PostCSS config (like we did with Babel earlier in this project in the Intro part) we have to give it the whole config now.
 
 Okay, now let's get our Tailwind project going.
 
