@@ -4,7 +4,7 @@ description: ""
 
 It may have annoyed you to copy and paste the same `w-60 mb-5 block` to three different inputs. If we were doing CSS directly this would be a clear case where making a reusable class would be applied. It becomes easier to read the code and now we can modify one thing and have it affect everywhere that class is used.
 
-This is not the pattern that Tailwind leans into. Tailwind basically says that for the most part "reusable" styles turn into "fragile" and "finnicky" styles. I personally have had to deal with horrendous stylesheets where you're afraid to change anything because if you try to modify one thing it breaks a dozen other places. It's hard to argue with that logic.
+This is not the pattern that Tailwind leans into. Tailwind basically says that for the most part "reusable" styles turn into "fragile" and "finicky" styles. I personally have had to deal with horrendous stylesheets where you're afraid to change anything because if you try to modify one thing it breaks a dozen other places. It's hard to argue with that logic.
 
 So, for the most part, what you just did is what you'll do with Tailwind: copy and paste. Then if we need to change it we just change the bare minimum we need to. It makes the upkeep a bit more annoying but it also makes it way less of a house of cards that will fall over later.
 
