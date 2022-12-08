@@ -8,7 +8,7 @@ What's wrong with this? These would be all "high priority" transitions for React
 
 > We _happen_ to be using both useTransition and useDeferredValue at the same time in the same file. That's not always true or even frequently true. Just know they are independently useable and don't need to be used together.
 
-Okay, so let's make our SearchParams.jsx use transitions now. Whenever the use clicks the "Submit" button we are going to show a loading spinner before switching back to the submit button.
+Okay, so let's make our SearchParams.jsx use transitions now. Whenever the user clicks the "Submit" button we are going to show a loading spinner before switching back to the submit button.
 
 ```javascript
 // replace react import
@@ -17,7 +17,7 @@ import {
   useDeferredValue,
   useMemo,
   useState,
-  useTransition,
+  startTransition,
 } from "react";
 
 // replace <form>
