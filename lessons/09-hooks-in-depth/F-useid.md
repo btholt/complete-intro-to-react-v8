@@ -7,7 +7,7 @@ description: "useId allows you to generate consistent IDs across renders"
 
 <iframe src="https://stackblitz.com/edit/ir5?embed=1&view=both&file=src/routes/UseId.jsx&hideExplorer=1&initialPath=/useId"></iframe>
 
-A new hook for version 18 of React is `useId`. Frequently in React you need unique identifiers to associate two objects together. Two examples of this would be making sure a label and an input are associated together by the `htmlFor` attribute as well as when you're doing a loop in React and you need a unique `key` for each item.
+A new hook for version 18 of React is `useId`. Frequently in React you need unique identifiers to associate two objects together. An example of this would be making sure a label and an input are associated together by the `htmlFor` attribute.
 
 Previously you could maintain some sort of unique counter that was tracked across renders. With concurrent React and batching in version 18 that's no longer possible. `useId` will give you a consistent via a hook so that they can always be the same.
 
