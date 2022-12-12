@@ -42,7 +42,7 @@ Let's take the time now to fix our ESLint. In previous versions of this course w
 
 Now you're linting as well as type checking! This added a few new TypeScript-specific rules as well. [Check those out here.][rules].
 
-Now if you run `npm run lint` you shouldn't see any type errors. But let's take this a step further: let's _enforce_ type checking. This means we won't unchecked TypeScript in our codebase. This is something you'd turn on once _everything_ is converted to TypeScript, otherwise it'll be very noisy. Since we're doing all the conversion now, let's add it now.
+Now if you run `npm run lint` you shouldn't see any type errors. But let's take this a step further: let's _enforce_ type checking. This means we won't have unchecked TypeScript in our codebase. This is something you'd turn on once _everything_ is converted to TypeScript, otherwise it'll be very noisy. Since we're doing all the conversion now, let's add it now.
 
 ```json
 // under plugin:@typescript-eslint/recommended
