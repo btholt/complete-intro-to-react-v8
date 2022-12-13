@@ -20,6 +20,9 @@ import {
   useTransition,
 } from "react";
 
+// add after 'useBreedList'
+const [isPending, startTransition] = useTransition();
+
 // replace <form>
 <form
   onSubmit={(e) => {
