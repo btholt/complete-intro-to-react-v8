@@ -59,7 +59,7 @@ const fetchBreedList: QueryFunction<
 > = async ({ queryKey }) => { … }
 ```
 
-Here we're explicitly making sure our string key is an Animal type and therefore and cannot have an invalid string. A little extra type defense that's pretty cheap. I'm a fan!
+Here we're explicitly making sure our string key is an Animal type and therefore we cannot have an invalid string. A little extra type defense that's pretty cheap. I'm a fan!
 
 > 🏁 [Click here to see the state of the project up until now: typescript-3][step]
 
