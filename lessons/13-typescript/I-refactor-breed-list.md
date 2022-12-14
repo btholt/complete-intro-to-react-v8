@@ -20,4 +20,4 @@ export default function useBreedList(animal: Animal) {
 ```
 
 - We need to type the parameter as an Animal. If we're going to assert it's an animal we have to have that type follow it around.
-- We need to use `as` here to tell TypeScript we explictly we expect it to be a length 2 array with the first item being a string array (which could be empty) and the second item being a loading status. Otherwise TypeScript thinks it's a heterogenous array where any item could be any of those types.
+- We need to use `as` here to tell TypeScript we explictly expect it to be a length 2 array with the first item being a string array (which could be empty) and the second item being a loading status. Otherwise TypeScript thinks it's a heterogenous array where any item could be any of those types.
