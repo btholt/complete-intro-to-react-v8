@@ -8,7 +8,7 @@ Let's write a second test for actually making a request with our custom hook, us
 npm install -D vitest-fetch-mock@0.2.1
 ```
 
-We now need to make it so Jest implements this mock before we run our tests. We can make it run a set up script by putting this in our vite.config.js:
+We now need to make it so Vitest implements this mock before we run our tests. We can make it run a set up script by putting this in our vite.config.js:
 
 ```javascript
 // inside "test"
