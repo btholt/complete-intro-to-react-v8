@@ -22,6 +22,13 @@ if (!container) {
 }
 ```
 
+Make the last change to `AdoptedPetContext.ts`:
+
+```tsx
+// replace with
+const AdoptedPetContext = createContext<[Pet | null, (adoptedPet: Pet) => void]>([
+```
+
 Just a few changes to 1. let TS know that null could be a Pet. and 2. to defend against a DOM without a container to render to.
 
 Last thing: open `index.html` and change the link from `App.js` to `App.tsx` and then you should be good to go!
