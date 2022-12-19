@@ -5,16 +5,10 @@ description: "Brian quickly converts SearchParams.tsx"
 Let's go do SearchParams.tsx
 
 ```tsx
-// update React import, add Reach Router import
-import { useState, useEffect, useContext } from "react";
+// import Animal type
 import { Animal } from "./APIResponsesTypes";
 
 const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
-
-// replace function declaration
-const SearchParams = () => {
-  …
-}
 
 // replace useState calls
 const [animal, updateAnimal] = useState("" as Animal);
