@@ -92,7 +92,7 @@ export default adoptedPetSlice.reducer;
 ```
 
 - Here you name your slice (what we're calling a bundle of reducers, state, and action creators)
-- You give it an inital state
+- You give it an initial state
 - You give it any reducers we need in our case, we just want a simple action that sets whatever the payload is to be what's stored. This common. Sometimes you may want to do some processing or math or something like that.
 - RTK takes the liberty of making action creators and the actual reducers for you. This was something you used to have to code by hand.
 - We export the reducer to use in the store.js file.
@@ -141,7 +141,7 @@ const dispatch = useDispatch();
 </button>;
 ```
 
-This is how to use Redux from a write persepctive (we'll look at read in a sec.) You use `dispatch` functions to dispatch an action (which `adopt` does for us). That payload will eventually be passed to the reducer we made which will update our store. Redux handles all of the informing React of when to re-render. If this feels a lot like context is because it works much the same way. They both inspired each others' design.
+This is how to use Redux from a write perspective (we'll look at read in a sec.) You use `dispatch` functions to dispatch an action (which `adopt` does for us). That payload will eventually be passed to the reducer we made which will update our store. Redux handles all of the informing React of when to re-render. If this feels a lot like context is because it works much the same way. They both inspired each others' design.
 
 Okay, let's go do writing. Hop on over to SearchParams.js
 
@@ -157,4 +157,4 @@ const adoptedPet = useSelector((state) => state.adoptedPet.value);
 
 That's it! You give `useSelector` a function that takes in the entire state tree and gives back just what you need. Keep in mind this is a subscription function: it will use this function to judge whether or not it needs to re-render your component. So don't just give it `state => state` or else it'll re-render on _every state change ever_ which is likely not what you want.
 
-Again, this is all fairly similar to Context but it definitely has its upsides. Slices are easy to test. And it externalize React's app state management from React itself. This means you can treat state mutation separately from UI which is generally a good thing. RTK made this much more paletteable.
+Again, this is all fairly similar to Context but it definitely has its upsides. Slices are easy to test. And it externalize React's app state management from React itself. This means you can treat state mutation separately from UI which is generally a good thing. RTK made this much more palatable.
