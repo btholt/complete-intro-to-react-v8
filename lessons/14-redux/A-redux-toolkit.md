@@ -2,6 +2,8 @@
 description: ""
 ---
 
+> Please start with a fresh copy of this app: [Adopt Me!][app]
+
 Redux is a well-known library that does state management for you, very similarly to how we used context. With context, you use the provider and consumer as a sort of portal to skip passing parameters through every component. With Redux, we're taking the state management _out_ of React entirely and moving it to a separate store.
 
 Why do we have Redux?
