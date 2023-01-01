@@ -67,7 +67,7 @@ setRequestParams(obj);
 - Notice how much faster it is going back-and-forth from one search query and back to another. The cache for this is fast and easy to use
 - We no longer have _any_ useEffect calls in our code. This won't always be the case but it's a nice thing to have. useEffect calls are a lot more difficult to get your head around. Where you have alternatives (like react-query) I suggest avoiding useEffect calls and offload that async code to a smart library like react-query
 - We're now doing an uncontrolled form with React (which unless you have specific validation needs or dependencies like we do with animal, I suggest you always do). We don't have to have verbose two-way data binding code to control the form, we can just wait until a users submits, gather the data, and ship it off to the API
-- We do have a controlled input on animal to properly have it determine the useBreedList animal. But not we're not using the controlled input to submit the form, we're just using the form event anyway
+- We do have a controlled input on animal to properly have it determine the useBreedList animal. But we're not using the controlled input to submit the form, we're just using the form event anyway
 
 There you go! Now our app is totally powered by react-query and no more effects in the App. I showed you how to write useEffect because it is a critical tool to know how to use with React and central to it, but I wanted to show you how to write it and then refactor it out later.
 
