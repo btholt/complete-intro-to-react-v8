@@ -40,7 +40,7 @@ Let's go fix App.jsx now:
 ```javascript
 // remove react-dom import
 
-// remove Router from <App />
+// remove BrowserRouter from <App /> and remove import
 
 // replace render at bottom
 export default App;
