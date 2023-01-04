@@ -17,7 +17,7 @@ Imagine you're doing a re-render of a large newsfeed of information and a user c
 
 The idea behind transitions is some of your renders are low priority: if they need to be interrupted they can be. What you don't want is to interrupt user intent: if a user clicks on a thing then you want drop everything to make sure that click felt responsive. We are going to use a hook called `useDeferredValue` to accomplish exactly this.
 
-> We're going to write for this and it's going to feel like it does nothing. Because it's essentially going to do nothing for us. `useDeferredValue` is useful when a lot of things are happening. This is a performance trick and should only be used when you actually have a performance issue.
+> We're going to code this and it's going to feel like it does nothing. Because it's essentially going to do nothing for us. `useDeferredValue` is useful when a lot of things are happening. This is a performance trick and should only be used when you actually have a performance issue.
 
 Right now the biggest re-render in app is when our app gets a new batch of pets to render. Imagine if we had three hundred pets to render: that actually could take a while. And if in the mean time a user clicked a button to adopt a pet or re-search for something else, we'd want to drop rendering other pets and focus on what the user asked for. So let's see that.
 
