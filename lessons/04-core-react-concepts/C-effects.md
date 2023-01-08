@@ -1,5 +1,5 @@
 ---
-description: "useEffect is a criticl hook for React, allowing developers to do asynchronous actions like making HTTP requests"
+description: "useEffect is a critical hook for React, allowing developers to do asynchronous actions like making HTTP requests"
 ---
 
 We have enough to start making some requests now. We want the app to request an initial set of pets on initial load of the page. So let's make that happen using a special hook called `useEffect`. `useEffect` allows you to say "do a render of this component first so the user can see _something_ then as soon as the render is done, _then_ do something (the something here being an effect.) In our case, we want the user to see our UI first then we want to make a request to the API so we can that initial list of pets.
@@ -32,7 +32,7 @@ async function requestPets() {
 {
   pets.map((pet) => (
     <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
-  ));
+  ))
 }
 ```
 
