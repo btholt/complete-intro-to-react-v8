@@ -45,7 +45,7 @@ This doesn't work!? Why? Well, turns out react-router-dom gets upset if you try 
 
 ```javascript
 // at top
-import { StaticRouter } from "react-router-dom";
+import { StaticRouter } from "react-router-dom/server";
 
 // replace render
 const pet = render(
