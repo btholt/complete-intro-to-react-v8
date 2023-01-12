@@ -22,7 +22,7 @@ This course works and has been tested on both macOS and Windows 10. It also will
 - Install Node.js. Make sure your version of Node.js is at least 14, preferably the latest stable release. I prefer using nvm to install Node.js, [see setup instructions here][nvm]. I'll be using Node.js 18.
 - While you do not have to use [Visual Studio Code][vsc], it is what I will be using and I'll be giving you fun tips for it along the way. I was on the VS Code team so I'm a bit biased!
 - People often ask me what my coding set up is so let's go over that really quick!
-  - Font: [Mono Lisa][mono]. Be sure to [enable ligatures][ligatures] in VS Code! If you want ligatures without Dank, check out Microsoft's [Cascadia Code][cascadia].
+  - Font: [Mono Lisa][mono]. Be sure to [enable ligatures][ligatures] in VS Code! If you want ligatures without Mono Lisa, check out Microsoft's [Cascadia Code][cascadia].
   - Theme: I actually just like Dark+, the default VS Code theme. Though I do love [Sarah Drasner's Night Owl][night-owl] too.
   - Terminal: I just switched back to using macOS's built in terminal. [iTerm2][iterm] is great too. On Windows I love [Windows Terminal][terminal].
   - VS Code Icons: the [vscode-icons][icons] extension.
