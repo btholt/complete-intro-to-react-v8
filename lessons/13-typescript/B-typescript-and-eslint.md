@@ -18,7 +18,7 @@ Let's take the time now to fix our ESLint. In previous versions of this course w
 // inside plugins
 "@typescript-eslint"
 
-// replace parser
+// add parser
 "parser": "@typescript-eslint/parser",
 
 // add to parserOptions
@@ -75,7 +75,7 @@ The final ESLint file looks like this:
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module",
-    "project": "tsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     }
