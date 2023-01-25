@@ -35,7 +35,7 @@
 <li>You can instead provide which hooks to watch for changes for. In our case, we actually only want it to run once, on creation of the component, and then to not run that effect again. (we&#39;ll do searching later via clicking the submit button) You can accomplish this only-run-on-creation by providing an empty array.</li>
 <li>The <code>// eslint-disable-line react-hooks/exhaustive-deps</code> tells eslint to shut up about this one run on this one line. Why? Because eslint tries to help you with you the data dependencies rule by watching for anything that <em>could</em> change. In this case, in theory the function could change but we know it&#39;s not important. You&#39;ll end up silencing this rule a fair bit.</li>
 <li>We could solve this by moving the requestPets function inside the effect and rely on React to call the fetch upon effect. This strategy would mean any time a user types in the location (and thus calls setState on the location) it&#39;d request from the API. This could work for you but for now we&#39;ll retain more control and just do it on submit events. It&#39;s all about managing when those effects go off. For now we just want this effect run once at the beginning and then not again.</li>
-<li>At the end, we gather take the pets we got back from the API and create Pet components out of each of them.</li>
+<li>At the end, we gather the pets we got back from the API and create Pet components out of each of them.</li>
 </ul>
 <blockquote>
 <p>🏁 <a href="https://github.com/btholt/citr-v8-project/tree/master/05-useeffect">Click here to see the state of the project up until now: 05-useeffect</a></p>
