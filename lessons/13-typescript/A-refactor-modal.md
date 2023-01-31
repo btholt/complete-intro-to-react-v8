@@ -74,6 +74,6 @@ Notice we're importing the `ReactElement` and `MutableRefObject` type from React
 We're also using a generic here. Refs can be one of many things. In this case our generic for the `MutableRefObject` is either `null` or `HTMLDivElement`. This is basically a parameter to the `MutableRefObject` to tell it how to structure itself.
 
 [mike]: https://frontendmasters.com/courses/typescript-v3/
-[steve]: https://frontendmasters.com/courses/react-typescript/
+[steve]: https://frontendmasters.com/courses/react-typescript-v2/
 [dt]: https://www.definitelytyped.org
 [app]: https://github.com/btholt/citr-v8-project/tree/master/14-context
