@@ -29,7 +29,7 @@ Now add it to your routes:
 // delete Pet import, and add SearchParams
 import SearchParams from "./SearchParams";
 
-// in App.js, replace all the Pets
+// in App.jsx, replace all the Pets
 <SearchParams />;
 ```
 
@@ -44,7 +44,7 @@ Like `className`, `htmlFor` is used because `for` is a reserved word in JS.
 So if we type in our input and it re-renders, what gets out in the `input` tag? Well, its value is tied to `location` and nothing changed that, so it remains the same. In other words, two way data binding is _not_ free in React. I say this is a feature because it makes you explicit on how you handle your data. Let's go make it work.
 
 ```javascript
-// in SearchParams.js
+// in SearchParams.jsx
 import { useState } from "react";
 
 // replace location
