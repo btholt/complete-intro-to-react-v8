@@ -49,7 +49,7 @@ export default function useBreedList(animal) {
 - We're returning two things back to the consumer of this custom hook: a list of breeds (including an empty list when it doesn't have anything in it) and an enumerated type of the status of the hook: unloaded, loading, or loaded. We won't be using the enum today but this is how I'd design it later if I wanted to throw up a nice loading graphic while breeds were being loaded.
 - We're tossing in `localCache` so if it loads once, it won't have to reload the same API call in the same session. You could take this further by sticking it in local storage or we could be more intelligent about ETags.
 
-Head over to SearchParam.jsx and put this in there.
+Head over to SearchParams.jsx and put this in there.
 
 ```javascript
 import useBreedList from "./useBreedList";
