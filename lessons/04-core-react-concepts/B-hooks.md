@@ -56,7 +56,7 @@ const [location, updateLocation] = useState("");
   value={location}
   placeholder="Location"
   onChange={(e) => updateLocation(e.target.value)}
-/>;
+/>
 ```
 
 - This is called a hook. Other frameworks like Vue have started adopting it as well.
@@ -116,7 +116,7 @@ const [animal, updateAnimal] = useState("");
       </option>
     ))}
   </select>
-</label>;
+</label>
 ```
 
 - You can use `useState` as many times as you need for various pieces of state! Again, this is why ordering is important because React relies on `useState` to be called in strictly the same order every time so it can give you the same piece of state.
