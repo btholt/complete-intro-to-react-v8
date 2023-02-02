@@ -123,7 +123,7 @@ const [animal, updateAnimal] = useState("");
 - Similar to above. We're using `onChange` and `onBlur` because it makes it more accessible.
 - Whenever you set the animal to be a new animal, you have to clear out the breed. If you select a dog, then select a poodle, then select cat, it wouldn't make sense for you to search for a poodle cat. Hence you need to clear out breed when you select a new animal.
 
-Let's make a third dropdown so you can select a breed as well as an animal.
+Let's make a second dropdown so you can select a breed as well as an animal.
 
 ```javascript
 // under your other state inside the component
