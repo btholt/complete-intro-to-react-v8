@@ -40,10 +40,10 @@ const Results = ({ pets }) => {
 export default Results;
 ```
 
-Now go back to SearchParams.js and put this:
+Now go back to SearchParams.jsx and put this:
 
 ```javascript
-// at top, replace import from Pet.js
+// at top, replace import from Pet.jsx
 import Results from "./Results";
 
 // under </form>, still inside the div, replace { pets.map ... }
