@@ -34,7 +34,7 @@ import Details from "./Details";
     <Route path="/details/:id" element={<Details />} />
     <Route path="/" element={<SearchParams />} />
   </Routes>
-</BrowserRouter>;
+</BrowserRouter>
 ```
 
 > If you're upset about the element prop vs children, [read their rationale here][element]
@@ -56,7 +56,7 @@ import { Link } from "react-router-dom";
 // change wrapping <a>
 <Link to={`/details/${id}`} className="pet">
   […]
-</Link>;
+</Link>
 ```
 
 Why did we change this? Didn't the `<a>` work? It did but with a flaw: every link you clicked would end up in the browser navigating to a whole new page which means React would totally reload your entire app all over again. With `<Link>` it can intercept this and just handle that all client-side. Much faster and a better user experience.
@@ -85,7 +85,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 // replace h1
 <header>
   <Link to="/">Adopt Me!</Link>
-</header>;
+</header>
 ```
 
 > If you're getting a useHref error, make sure your `header` is _inside_ `<BrowserRouter>`
