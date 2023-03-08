@@ -26,7 +26,7 @@ So that our tool can know this is a Prettier project, we're going to create a fi
 
 So it can be painful to try to remember the various CLI commands to run on your project. You can put CLI commands into it and then run the name of the tag and it'll run that script. Let's go see how that works. Put the following into your package.json.
 
-First run `npm install -D prettier@2.7.1`. `-D` means it's for development only.
+First run `npm install -D prettier@2.7.1` `-D` means it's for development only.
 
 ```json
 "scripts": {
