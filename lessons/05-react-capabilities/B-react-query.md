@@ -13,7 +13,7 @@ Here I am going to teach you a library called [@tanstack/react-query][react-quer
 npm install @tanstack/react-query@4.10.1
 ```
 
-> `@tanstack/react-query` is the same people who do `react-query`. This is just the newer version. They now support than just React.
+> `@tanstack/react-query` is the same people who do `react-query`. This is just the newer version. They now support more than just React.
 
 The idea behind React is that you want to cache most of what you fetch from a database. If you fetch the details of pet ID 1, you generally do not want to fetch it again if a user revisits that page: you'd like to cache it. This is what react-query is going to do for you: it's a built in caching layer for these async data stores that works really well within the constraints of React. Let's see how to make our Details page use it.
 
