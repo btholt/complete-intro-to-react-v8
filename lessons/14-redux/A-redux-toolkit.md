@@ -160,3 +160,5 @@ const adoptedPet = useSelector((state) => state.adoptedPet.value);
 That's it! You give `useSelector` a function that takes in the entire state tree and gives back just what you need. Keep in mind this is a subscription function: it will use this function to judge whether or not it needs to re-render your component. So don't just give it `state => state` or else it'll re-render on _every state change ever_ which is likely not what you want.
 
 Again, this is all fairly similar to Context but it definitely has its upsides. Slices are easy to test. And it externalize React's app state management from React itself. This means you can treat state mutation separately from UI which is generally a good thing. RTK made this much more palatable.
+
+[app]: https://github.com/btholt/citr-v8-project/tree/master/14-context
