@@ -8,7 +8,7 @@ React Router is by far the most popular client side router in the React communit
 
 What we want to do now is to add a second page to our application: a Details page where you can out more about each animal.
 
-Let's quickly make a second page so we can switch between the two. Make file called Details.jsx.
+Let's quickly make a second page so we can switch between the two. Make a file called Details.jsx.
 
 ```javascript
 const Details = () => {
