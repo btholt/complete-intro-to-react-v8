@@ -471,8 +471,8 @@ ol.sections-name .lesson-details {
   }
 
   ol.sections-name .lesson-preface {
-    font-size:60px
-   }
+    font-size: 60px;
+  }
 }
 
 .lesson-details h3 {
@@ -522,4 +522,17 @@ ol.sections-name .lesson-details {
 .lesson-content iframe {
   width: 100%;
   height: 600px;
+}
+
+/* theme switcher */
+
+.switcher {
+  margin-right: 1rem;
+  border-radius: 10px;
+  background: var(--secondary);
+  color: white;
+  padding: 7px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
