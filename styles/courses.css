@@ -527,10 +527,12 @@ ol.sections-name .lesson-details {
 /* theme switcher */
 
 .switcher {
+  outline: none;
+  border: none;
   margin-right: 1rem;
   border-radius: 10px;
-  background: var(--secondary);
-  color: white;
+  background: var(--primary);
+  color: black;
   padding: 7px 20px;
   display: flex;
   justify-content: center;
