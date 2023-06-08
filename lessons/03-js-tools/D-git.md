@@ -15,6 +15,6 @@ coverage/
 .vscode/
 ```
 
-This will make it so these things won't get added to our repo. If you want more Git instruction, please check out [Nina Zakharenko's coures on Frontend Masters][nina]
+This will make it so these things won't get added to our repo. If you want more Git instruction, please check out [Nina Zakharenko's course on Frontend Masters][nina]
 
 [nina]: https://frontendmasters.com/courses/git-in-depth/
