@@ -61,7 +61,7 @@ module.exports = {
 };
 ```
 
-Now if you run your app you should the React app (and all the functionality should work) but it won't have any style. We're going to quickly restyle this whole app to show you how great Tailwind is and how quickly it lets you go.
+Now if you run your app you should see the React app (and all the functionality should work) but it won't have any style. We're going to quickly restyle this whole app to show you how great Tailwind is and how quickly it lets you go.
 
 [tw]: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
 [sc]: https://btholt.github.io/complete-intro-to-react/
