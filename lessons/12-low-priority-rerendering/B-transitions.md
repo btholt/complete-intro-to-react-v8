@@ -49,7 +49,7 @@ const [isPending, startTransition] = useTransition();
     </div>
   ) : (
     <button>Submit</button>
-  );
+  )
 }
 ```
 
