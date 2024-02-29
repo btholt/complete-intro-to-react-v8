@@ -70,9 +70,9 @@ const [, setAdoptedPet] = useContext(AdoptedPetContext);
 </button>;
 ```
 
-- Here we are setting the "adopted" pet to using the setter of the hook when the user clicks yes
-- Upon clicking yes we want to set the adopted pet via the context and then navigate the user to the home page so they can see what they did. The `useNavigate` hook gives back a `navigate` function from react-router-dom that allows you to navigate to a different page
-- We don't have to set the modal to hide. The whole page is about to unmount so no need to
+- Here we are setting the "adopted" pet to using the setter of the hook when the user clicks yes.
+- Upon clicking yes we want to set the adopted pet via the context and then navigate the user to the home page so they can see what they did. The `useNavigate` hook gives back a `navigate` function from react-router-dom that allows you to navigate to a different page.
+- We don't have to set the modal to hide. The whole page is about to unmount so no need to.
 
 Let's go do this in SearchParams.jsx
 
