@@ -29,7 +29,7 @@ handleIndexClick = (event: MouseEvent<HTMLElement>) => {
 };
 ```
 
-- React.Component is a generic, in that it can accept other types. Here we're telling it what its state and props will look like. We start the interfaces off with a capital I because this signifies that this is an interface. This is a common pattern and one TSLint enforced but ESLint doesn't by deafult. I'm showing you so you can make your own call.
+- React.Component is a generic, in that it can accept other types. Here we're telling it what its state and props will look like. We start the interfaces off with a capital I because this signifies that this is an interface. This is a common pattern and one TSLint enforced but ESLint doesn't by default. I'm showing you so you can make your own call.
 - We could specify an `IState` as well as a second parameter to the `Component` generic but since we have the `state = {}` it can infer that without us doing that.
 - We need to type the event type coming back from the DOM. We know it'll come from an HTML element, and we have to make sure it's not a generic window event. TypeScript forces a lot of this defensive programming.
 
