@@ -128,7 +128,7 @@ Last one. Head to SearchParam.jsx
 import { useSearchQuery } from "./petApiService";
 
 // replace useQuery call
-const { data: pets } = useSearchQuery(searchParams);
+let { data: pets } = useSearchQuery(searchParams);
 pets = pets ?? [];
 ```
 
