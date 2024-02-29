@@ -4,7 +4,7 @@ description: ""
 
 Let's write our first test for Pet.jsx. In general, here's my methodology for testing React:
 
-- Try to test functionality, not implementation. Make your tests interact with components as a user would, not as a developer would. This means you're trying to do more think of things like "what would a user see" or "if a user clicks a button a modal comes up" rather than "make sure this state is correct" or "ensure this library is called". This isn't a rule; sometimes you need to test those things too for assurance the app is working correctly. Use your best judgment.
+- Try to test functionality, not implementation. Make your tests interact with components as a user would, not as a developer would. This means you're trying to do more to think of things like "what would a user see" or "if a user clicks a button a modal comes up" rather than "make sure this state is correct" or "ensure this library is called". This isn't a rule; sometimes you need to test those things too for assurance the app is working correctly. Use your best judgment.
 - Every UI I've ever worked on changes a lot. Try to not unnecessarily spin your wheels on things that aren't important and are likely to change.
 - In general when I encounter a bug that is important for me to go back and fix, I'll write a test that would have caught that bug. Actually what I'll do is _before_ I fix it, I'll write the test that fails. That way I fix it I'll know I won't regress back there.
 - Ask yourself what's important about your app and spend your time testing that. Ask yourself "if a user couldn't do X then the app is worthless" sort of questions and test those more thoroughly. If a user can't change themes then it's probably not the end of the world (a11y is important) so you can spend less time testing that but if a user can't log in then the app is worthless. Test that.
@@ -29,7 +29,7 @@ test("displays a default thumbnail", async () => {
 
 > 🚨 This doesn't work yet. That's intentional.
 
-See the `findByTestId` function? This lets us stick IDs in our code that React testing library can latch onto to test. Go into your `Pet.js` and add to the `<img>` tag `data-testid="thumbnail"` to it so that your test can find it. It's advantageous to use these test IDs and decouple them from the existing CSS selector hierarchy because now it's very portable and not fragile. It's very intentional and obvious what it's supposed to do. If we moved the `<img>` we could just move the test ID and not have to fix more code.
+See the `findByTestId` function? This lets us stick IDs in our code that React testing library can latch onto to test. Go into your `Pet.jsx` and add to the `<img>` tag `data-testid="thumbnail"` to it so that your test can find it. It's advantageous to use these test IDs and decouple them from the existing CSS selector hierarchy because now it's very portable and not fragile. It's very intentional and obvious what it's supposed to do. If we moved the `<img>` we could just move the test ID and not have to fix more code.
 
 The test doesn't pass? Oh, that's because it caught a bug! If you don't give it an images array, it just breaks. That defeats the purpose of having a default image! Let's go fix it in Pet.js.
 
