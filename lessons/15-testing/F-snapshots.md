@@ -21,7 +21,7 @@ test("renders correctly with no pets", () => {
 });
 ```
 
-Run this to see Vitest say it created a snapshot. Go look now at Results.test.jsx.snap to see what it created. You can see it's just rendering out what it would look like. Now if you modify Results.jsx it will fail the test. As you can see, it's a quick gut check to make sure your changes don't have cascading problems. If I modify App.jsx and it causes this to fail it means I can catch it and validate quickly. Some people don't find it useful. I'm not entirely sold on it to be honest; at most these should be used very sparingly. This could be useful if you have a component that expect to _never_ change and it would be a problem if it did. Maybe a footer? I don't know. I never write these.
+Run this to see Vitest say it created a snapshot. Go look now at Results.test.jsx.snap to see what it created. You can see it's just rendering out what it would look like. Now if you modify Results.jsx it will fail the test. As you can see, it's a quick gut check to make sure your changes don't have cascading problems. If I modify App.jsx and it causes this to fail it means I can catch it and validate quickly. Some people don't find it useful. I'm not entirely sold on it to be honest; at most these should be used very sparingly. This could be useful if you have a component that you expect to _never_ change and it would be a problem if it did. Maybe a footer? I don't know. I never write these.
 
 Let's add some pets and see how it does.
 
@@ -160,7 +160,7 @@ test("renders correctly with some pets", () => {
 });
 ```
 
-This works, and now you can stick with this, but here's a problem. If you look at your snapshot, it's rendering Pet components as well. Now if you modify Pet.jsx (that has its own tests already) your _Results.jsx_ test is going to fail. This is misleading, nothing is wrong or different with Results.jsx. In previous version of this class I show you how to accomplish this with react-test-renderer. However the folks at @testing-lib think shallow rendering is more harmful than helpful (I like, 75% agree) so we'll leave it out. [Click here][fem] to see me teach this previously. It's 95% the same, just uses Jest instead of Vitest.
+This works, and now you can stick with this, but here's a problem. If you look at your snapshot, it's rendering Pet components as well. Now if you modify Pet.jsx (that has its own tests already) your _Results.jsx_ test is going to fail. This is misleading, nothing is wrong or different with Results.jsx. In a previous version of this class I show you how to accomplish this with react-test-renderer. However the folks at @testing-lib think shallow rendering is more harmful than helpful (I like, 75% agree) so we'll leave it out. [Click here][fem] to see me teach this previously. It's 95% the same, just uses Jest instead of Vitest.
 
 Update your snapshots by either running `npm run test -- -u` or you can use the watcher to do it with either `u` to update all at once or do `i` one-by-one.
 
