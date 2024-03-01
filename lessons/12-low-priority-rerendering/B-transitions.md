@@ -4,7 +4,7 @@ description: ""
 
 We have seen how to defer lesser important updates but let's talk specifically about transition states. More often than not this is a loading state e.g. a user clicked a submit button and now we need to hit the API and wait for the API to say "here is the results". What we would have done previously (and did do in the Intro) is have a `useState` piece of state that keeps track of a `isLoading` flag.
 
-What's wrong with this? These would be all "high priority" transitions for React and therefore it will try to do it as fast and as soon as it can. However it ends up being not a big deal: we can defer showing a loading state until everything else is done in the name of keeping the UI responsive. This is what `useTransition` is good for.
+What's wrong with this? These would be all "high priority" transitions for React. Therefore, it will try to do it as fast and as soon as it can, but it ends up being not a big deal because we can defer showing a loading state until everything else is done (in the name of keeping the UI responsive). This is what `useTransition` is good for.
 
 > We _happen_ to be using both useTransition and useDeferredValue at the same time in the same file. That's not always true or even frequently true. Just know they are independently useable and don't need to be used together.
 

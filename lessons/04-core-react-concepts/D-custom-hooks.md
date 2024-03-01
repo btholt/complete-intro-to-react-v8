@@ -58,7 +58,7 @@ import useBreedList from "./useBreedList";
 const [breeds] = useBreedList(animal);
 ```
 
-That should be enough! Now you should have breeds being populated everything you change animal! (Do note we haven't implemented the submit button yet though.)
+That should be enough! Now you should have breeds being populated every time you change animal! (Do note we haven't implemented the submit button yet though.)
 
 > 🏁 [Click here to see the state of the project up until now: 06-custom-hooks][step]
 

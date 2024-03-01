@@ -7,7 +7,7 @@ One last very cool trick that Vitest has built into it: [c8][c8]. c8 is a tool w
 
 Add the following command to your npm scripts: `"test:coverage": "vitest --coverage"` and go ahead run `npm run test:coverage` and open the following file in your browser: `open src/coverage/index.html`.
 
-> It will likely ask you to install a module to do this. Say yes.
+> It will likely ask you to install a module to do this. Say yes. Note: depending on when you arrive here, you may get an error and will likely need to install specific version used.
 
 Here you can see the four files we've written tests for. One file, `fetchBreedList` is missing a line of coverage (click on the file name to see that): it's the line of reading back from the cache. That actually is a pretty important thing to cover as it could be a source of bugs (cache might as well be the French word for software bug). This can help identify gaps in your testing coverage.
 

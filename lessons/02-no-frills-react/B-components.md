@@ -29,7 +29,7 @@ const root = ReactDOM.createRoot(container);
 root.render(React.createElement(App));
 ```
 
-> 🚨 You will be seeing a console warning `Warning: Each child in a list should have a unique "key" prop.` in your browser console. React's dev warnings are trying to help your code run faster. Basically React tries to keep track of components are swapped in order in a list and it does that by you giving it a unique key it can track. If it sees two things have swapped, it'll just move the components instead of re-rendering.
+> 🚨 You will be seeing a console warning `Warning: Each child in a list should have a unique "key" prop.` in your browser console. React's dev warnings are trying to help your code run faster. Basically, React tries to keep track of components that are swapped in order. In a list, it does that by you giving it a unique key it can track. If it sees two things have swapped, it'll just move the components instead of re-rendering.
 
 Replace your `script` tag in your index.html that has all your code in it with `<script src="./App.js"></script>`. Leave the two React scripts.
 

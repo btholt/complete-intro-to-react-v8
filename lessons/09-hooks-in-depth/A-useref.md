@@ -17,9 +17,9 @@ In our example, let's integrate [Three.js][three] with React. Three.js is a libr
 
 React is very fast at re-rendering and 99.999% of the time you never have to worry when React re-renders, just that your view is a function of your state.
 
-The .001% of times you care is when you have something that is either very performance sensitive and you want to have a tighter grip on the performance or something like our Three.js app running in it where re-rendering it will destroy and re-create a pretty expensive thing to re-render. It also looks bad because it'll reset the animation.
+The .001% of times you care is when you have something that is either very performance sensitive and you want to have a tighter grip on the performance or something like our Three.js app running in it (where re-rendering it will destroy and re-create a pretty expensive thing to re-render). It also looks bad because it'll reset the animation.
 
-`React.memo` tells React "as long as the parameters being passed into this component don't change, _do not re-render it ever_. You might be tempted to do this on every component but believe me, _don't_. Things will no re-render when you expect them to and you will forget you memoized them. Only use memo where you need to.
+`React.memo` tells React "as long as the parameters being passed into this component don't change, _do not re-render it ever_. You might be tempted to do this on every component but believe me, _don't_. Things will not re-render when you expect them to and you will forget you memoized them. Only use memo where you need to.
 
 [three]: https://threejs.org/
 [sb]: https://stackblitz.com/edit/ir5
