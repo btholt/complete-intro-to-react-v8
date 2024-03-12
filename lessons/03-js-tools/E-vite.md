@@ -10,7 +10,7 @@ Our end result that we want from a build tool is that
 - We can include external, third-party libraries from npm (like React!)
 - The tool will optimize the code for us by minifying and other optimizing techniques
 
-Previous versions of this course used [Parcel][parcel], another tool near-and-dear to my heart. It is still an amazing tool and one I recommend you check out. We ended up moving to Vite because the React community has selected it as the tool-of-choice for the moment and this courses aims to give you the community norms of React. Even older versions of this course previously taught [Webpack][webpack].
+Previous versions of this course used [Parcel][parcel], another tool near-and-dear to my heart. It is still an amazing tool and one I recommend you check out. We ended up moving to Vite because the React community has selected it as the tool-of-choice for the moment and this course aims to give you the community norms of React. Even older versions of this course previously taught [Webpack][webpack].
 
 First, let's install the things we need for Vite.
 
@@ -27,7 +27,7 @@ The former is the tool itself and the latter is all the React specific features 
 
 We need to add module to the script tag so that the browser knows it's working with modern browser technology that allows you in development mode to use modules directly. Instead of having to reload the whole bundle every time, your browser can just reload the JS that has changed. It allows the browser to crawl the dependency graph itself which means Vite can run lightning fast in dev mode. It will still package it up for production so we can support a range of browsers.
 
-Next, let's make our config file. Make a file in the root of your proejct called `vite.config.js` and stick this in there:
+Next, let's make our config file. Make a file in the root of your project called `vite.config.js` and stick this in there:
 
 ```javascript
 import { defineConfig } from "vite";
@@ -72,7 +72,7 @@ Now let's set up our scripts to start Vite. In package.json, put:
 "preview": "vite preview"
 ```
 
-`dev` will start the devlopment server, typically on [http://localhost:5173/](). `build` will prepare static files to be deployed (to somewhere like GitHub Pages, Vercel, Netlify, AWS S3, etc.) `preview` lets you preview your production build locally.
+`dev` will start the development server, typically on [http://localhost:5173/](). `build` will prepare static files to be deployed (to somewhere like GitHub Pages, Vercel, Netlify, AWS S3, etc.) `preview` lets you preview your production build locally.
 
 > Please close the `file:///` browser tabs you have open and only use the `localhost:1234` ones. Now that we're using Vite the former won't work anymore! If you see something about `CORS` errors in your console it's because you're probably still looking at the file:/// version and not the local dev server
 
