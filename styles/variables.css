@@ -1,7 +1,7 @@
 :root {
   --primary: #4dd0e1;
   --secondary: #333;
-  
+
   --highlight: #0097a7;
 
   --text-header: var(--primary);
@@ -22,5 +22,17 @@
   --footer-icons: var(--secondary);
 
   --emphasized-bg: #dce8ff;
+  --emphasized-border: #aab6d2;
+}
+
+[data-theme="dark"] {
+  --text-main-headers: white;
+
+  --bg-main: black;
+  --bg-lesson: black;
+
+  --nav-buttons-text: black;
+
+  --emphasized-bg: #aebad0;
   --emphasized-border: #aab6d2;
 }
