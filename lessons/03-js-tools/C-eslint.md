@@ -3,7 +3,7 @@ title: "ESLint"
 description: "An essential part of maintaining a project a long time is discipline in coding standards and avoiding antipatterns. ESLint is a great tool that helps you do just that."
 ---
 
-On top of Prettier which takes of all the formatting, you may want to enforce some code styles which pertain more to usage: for example you may want to force people to never use `with` which is valid JS but ill advised to use. [ESLint][eslint] comes into play here. It will lint for this problems.
+On top of Prettier which takes of all the formatting, you may want to enforce some code styles which pertain more to usage: for example you may want to force people to never use `with` which is valid JS but ill advised to use. [ESLint][eslint] comes into play here. It will lint for these problems.
 
 First of all, run `npm install -D eslint@8.24.0 eslint-config-prettier@8.5.0` to install eslint in your project development dependencies. Then you may configure its functionalities.
 
