@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Link from "next/link";
 import { Context as HeaderContext } from "../context/headerContext";
 import { Context as CourseContext } from "../context/courseInfoContext";
+import ThemeSwitcher from "./themeSwitcher";
 
 export default function Header(props) {
   const [{ section, title, icon }] = useContext(HeaderContext);
@@ -12,6 +13,7 @@ export default function Header(props) {
         <Link href="/">{props.title}</Link>
       </h1>
       <div className="navbar-info">
+        <ThemeSwitcher />
         {frontendMastersLink ? (
           <a href={frontendMastersLink} className="cta-btn">
             Watch on Frontend Masters
