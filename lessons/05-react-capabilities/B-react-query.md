@@ -155,4 +155,4 @@ Nearly all the same concepts at play, just a little different to handle the fact
 
 [step]: https://github.com/btholt/citr-v8-project/tree/master/09-react-query
 [react-query]: https://tanstack.com/query/v4
-[mutations]: https://tanstack.com/query/v4/docs/guides/mutations
+[mutations]: https://tanstack.com/query/v4/docs/framework/react/guides/mutations
